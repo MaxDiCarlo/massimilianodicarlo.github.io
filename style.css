@@ -1,16 +1,58 @@
-/* === Stile base === */
+/* === Reset e base === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #0d0d0d;
   color: #e0e0e0;
   font-family: 'Inter', sans-serif;
-  margin: 0;
   line-height: 1.6;
-  scroll-behavior: smooth;
 }
 
+/* === Navbar === */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.nav-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff5252;
+}
+
+/* === Header === */
 header {
   text-align: center;
-  padding: 3rem 1rem 2rem;
+  padding: 4rem 1rem 2rem;
   animation: fadeIn 1.5s ease;
 }
 
@@ -24,15 +66,16 @@ header h1 {
   font-size: 1rem;
   color: #aaa;
   margin-top: 1rem;
-  line-height: 1.5;
 }
 
+/* === Main layout === */
 main {
   width: 90%;
   max-width: 1100px;
   margin: 0 auto;
 }
 
+/* === Titoli sezione === */
 h2 {
   font-size: 1.5rem;
   border-bottom: 1px solid #333;
@@ -40,7 +83,6 @@ h2 {
   margin-top: 3rem;
   margin-bottom: 2rem;
   color: #fff;
-  letter-spacing: 1px;
 }
 
 /* === Sezione Video === */
@@ -63,7 +105,7 @@ h2 {
   transform: scale(1.02);
 }
 
-/* === Reel Instagram === */
+/* === Instagram Reel === */
 .instagram-reel {
   display: flex;
   justify-content: center;
@@ -86,7 +128,6 @@ h2 {
 
 .instagram-media {
   width: 100% !important;
-  min-width: auto !important;
   margin: 0 auto !important;
 }
 
@@ -117,6 +158,11 @@ h2 {
   margin-top: 3rem;
 }
 
+#contatti a {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
 .social a {
   color: #e0e0e0;
   margin: 0 10px;
@@ -129,6 +175,7 @@ h2 {
   color: #ff5252;
 }
 
+/* === Footer === */
 footer {
   text-align: center;
   font-size: 0.9rem;

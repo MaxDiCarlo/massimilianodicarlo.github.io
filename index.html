@@ -41,17 +41,21 @@
       <h2>Video</h2>
       <div class="video-grid">
         <!-- Video 1 -->
-        <div class="video-item video-preview fade">
-          <video src="marco.MOV" muted loop playsinline preload="metadata"></video>
-          <img src="marco-placeholder.jpg" alt="Marco Video">
-          <button class="play-btn">▶️</button>
+        <div class="video-item fade">
+          <div class="video-preview">
+            <video src="marco.MOV" loop playsinline preload="metadata"></video>
+            <img src="marco-placeholder.jpg" alt="Marco Video">
+            <button class="play-btn">▶️</button>
+          </div>
         </div>
 
         <!-- Video 2 -->
-        <div class="video-item video-preview fade">
-          <video src="davide.MOV" muted loop playsinline preload="metadata"></video>
-          <img src="davide-placeholder.jpg" alt="Davide Video">
-          <button class="play-btn">▶️</button>
+        <div class="video-item fade">
+          <div class="video-preview">
+            <video src="davide.MOV" loop playsinline preload="metadata"></video>
+            <img src="davide-placeholder.jpg" alt="Davide Video">
+            <button class="play-btn">▶️</button>
+          </div>
         </div>
       </div>
     </section>
@@ -85,7 +89,7 @@
     <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
   </footer>
 
-  <!-- === JS alla fine del body === -->
+  <!-- === JS === -->
   <script>
     // === Navbar mobile toggle ===
     const toggle = document.getElementById('menu-toggle');
@@ -116,8 +120,7 @@
     // === Header parallasse ===
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('hero');
-      const scrollY = window.scrollY;
-      hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
+      hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
     });
 
     // === Video hover + click audio ===
@@ -128,7 +131,6 @@
       const placeholder = container.querySelector('img');
       const btn = container.querySelector('.play-btn');
 
-      // Hover → video silenzioso
       container.addEventListener('mouseenter', () => {
         video.muted = true;
         placeholder.style.opacity = 0;
@@ -139,10 +141,9 @@
         video.pause();
         video.currentTime = 0;
         placeholder.style.opacity = 1;
-        btn.style.display = "block"; // mostra il pulsante di nuovo
+        btn.style.display = "block";
       });
 
-      // Click → attiva audio
       btn.addEventListener('click', () => {
         video.muted = false;
         video.play();

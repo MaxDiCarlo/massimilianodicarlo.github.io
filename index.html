@@ -3,96 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Videomaker - Il Tuo Nome</title>
-  <style>
-    :root {
-      --bg: #f9f9f9;
-      --text: #222;
-      --accent: #ff5500;
-    }
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: .5rem;
-    }
-    header p {
-      color: #666;
-      margin-top: 0;
-    }
-    section {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    iframe {
-      width: 100%;
-      height: 200px;
-      border-radius: 12px;
-      border: none;
-    }
-    .about, .contact {
-      text-align: center;
-    }
-    .contact a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #fff;
-      font-size: .9rem;
-      color: #666;
-      border-top: 1px solid #eee;
-    }
-  </style>
+  <title>Massimiliano Di Carlo – Videomaker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/685/685655.png" />
 </head>
+
 <body>
   <header>
-    <h1>Il Tuo Nome</h1>
-    <p>Videomaker | Director | Editor</p>
+    <h1>Massimiliano Di Carlo</h1>
+    <p class="subtitle">Videomaker, fotografo, editor.<br>Creo immagini che parlano la lingua del tuo brand — eventi, portrait, visual identity.</p>
   </header>
 
-  <section class="about">
-    <h2>Chi sono</h2>
-    <p>Ciao! Sono un videomaker appassionato di storytelling visivo, specializzato in videoclip, cortometraggi e contenuti digitali. Mi piace unire estetica e ritmo per creare emozione in ogni progetto.</p>
-  </section>
+  <main>
+    <!-- Sezione Video -->
+    <section id="video">
+      <h2>Video</h2>
+      <div class="video-grid">
+        <div class="video-item">
+          <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-item">
+          <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="video-item">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
 
-  <section class="works">
-    <h2>I miei lavori</h2>
-    <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" title="Video 1"></iframe>
-      <iframe src="https://player.vimeo.com/video/76979871" title="Video 2"></iframe>
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 3"></iframe>
-    </div>
-  </section>
+    <!-- Sezione Foto -->
+    <section id="foto">
+      <h2>Foto</h2>
+      <div class="photo-grid">
+        <img src="https://via.placeholder.com/400x250?text=Foto+1" alt="Foto 1">
+        <img src="https://via.placeholder.com/400x250?text=Foto+2" alt="Foto 2">
+        <img src="https://via.placeholder.com/400x250?text=Foto+3" alt="Foto 3">
+        <img src="https://via.placeholder.com/400x250?text=Foto+4" alt="Foto 4">
+      </div>
+    </section>
 
-  <section class="contact">
-    <h2>Contatti</h2>
-    <p>Per collaborazioni o informazioni:</p>
-    <p><a href="mailto:iltuomail@example.com">iltuomail@example.com</a></p>
-  </section>
+    <!-- Contatti -->
+    <section id="contatti">
+      <h2>Contatti</h2>
+      <p>📩 <a href="mailto:maxvisuals.studio@gmail.com">maxvisuals.studio@gmail.com</a></p>
+      <div class="social">
+        <a href="https://www.instagram.com/maxvisuals.studio/" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@massimilianodicarlo98" target="_blank">YouTube</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Il Tuo Nome — Tutti i diritti riservati.</p>
+    <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
   </footer>
 </body>
 </html>

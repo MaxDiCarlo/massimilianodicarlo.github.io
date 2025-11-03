@@ -95,3 +95,20 @@ footer {
   font-size: 0.9rem;
   color: #999;
 }
+
+/* === Fix per Instagram Embed === */
+.video-item blockquote.instagram-media {
+  width: 100% !important;
+  min-width: unset !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.video-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

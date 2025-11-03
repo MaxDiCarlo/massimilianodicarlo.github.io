@@ -7,7 +7,6 @@
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/685/685655.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <!-- === Navbar === -->
   <nav>
@@ -40,16 +39,21 @@
     <section id="video">
       <h2>Video</h2>
       <div class="video-grid">
-        <!-- Video Marco -->
+        <!-- Video 1 -->
         <div class="video-item video-preview fade">
-          <video src="marco.MOV" muted loop preload="metadata"></video>
-          <img src="marco-placeholder.jpg" alt="Marco">
+          <video src="marco.MOV" muted loop autoplay playsinline preload="metadata"></video>
+          <img src="marco-placeholder.jpg" alt="Marco Video">
         </div>
 
-        <!-- Video Davide -->
+        <!-- Video 2 -->
         <div class="video-item video-preview fade">
-          <video src="davide.MOV" muted loop preload="metadata"></video>
-          <img src="davide-placeholder.jpg" alt="Davide">
+          <video src="davide.MOV" muted loop autoplay playsinline preload="metadata"></video>
+          <img src="davide-placeholder.jpg" alt="Davide Video">
+        </div>
+
+        <!-- Video YouTube -->
+        <div class="video-item fade">
+          <iframe src="https://www.youtube.com/embed/Kn2M-44kuvE" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -111,11 +115,10 @@
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // Parallax header
+    // Effetto parallasse header
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('hero');
-      const scrollY = window.scrollY;
-      hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
+      hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
     });
   </script>
 </body>

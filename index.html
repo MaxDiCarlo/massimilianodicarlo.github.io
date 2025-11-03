@@ -12,28 +12,34 @@
   <!-- === Navbar === -->
   <nav>
     <div class="logo">Massimiliano Di Carlo</div>
-    <div class="nav-links">
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
       <a href="#video">Video</a>
       <a href="#foto">Foto</a>
       <a href="#contatti">Contatti</a>
     </div>
   </nav>
 
-  <header>
+ <header id="hero">
+  <div class="hero-content">
     <h1>Massimiliano Di Carlo</h1>
     <p class="subtitle">
       Videomaker, fotografo, editor.<br>
       Creo immagini che parlano la lingua del tuo brand — eventi, portrait, visual identity.
     </p>
-  </header>
+  </div>
+</header>
 
   <main>
     <!-- === Sezione Video === -->
     <section id="video">
       <h2>Video</h2>
-
       <div class="video-grid">
-        <div class="video-item instagram-reel">
+        <div class="video-item fade">
           <div class="reel-container">
             <blockquote class="instagram-media"
               data-instgrm-permalink="https://www.instagram.com/reel/DQmE4UkDKB-/"
@@ -43,7 +49,7 @@
           </div>
         </div>
 
-        <div class="video-item instagram-reel">
+        <div class="video-item fade">
           <div class="reel-container">
             <blockquote class="instagram-media"
               data-instgrm-permalink="https://www.instagram.com/reel/DNlJv0lM6a6/"
@@ -53,12 +59,12 @@
           </div>
         </div>
 
-        <div class="video-item">
+        <div class="video-item fade">
           <iframe src="https://www.youtube.com/embed/Kn2M-44kuvE"
             frameborder="0" allowfullscreen></iframe>
         </div>
 
-        <div class="video-item">
+        <div class="video-item fade">
           <iframe src="https://www.youtube.com/embed/QW-q1pNTRL8"
             frameborder="0" allowfullscreen></iframe>
         </div>
@@ -69,13 +75,13 @@
     <section id="foto">
       <h2>Foto</h2>
       <div class="photo-grid">
-        <img src="MAX02125.jpg" alt="Foto 1">
-        <img src="MAX02227.jpg" alt="Foto 2">
-        <img src="MAX02305.jpg" alt="Foto 3">
-        <img src="MAX02640-4.jpg" alt="Foto 4">
-        <img src="MAX03049.jpg" alt="Foto 5">
-        <img src="MAX03103.jpg" alt="Foto 6">
-        <img src="MAX03151.jpg" alt="Foto 7">
+        <img class="fade" src="MAX02125.jpg" alt="Foto 1">
+        <img class="fade" src="MAX02227.jpg" alt="Foto 2">
+        <img class="fade" src="MAX02305.jpg" alt="Foto 3">
+        <img class="fade" src="MAX02640-4.jpg" alt="Foto 4">
+        <img class="fade" src="MAX03049.jpg" alt="Foto 5">
+        <img class="fade" src="MAX03103.jpg" alt="Foto 6">
+        <img class="fade" src="MAX03151.jpg" alt="Foto 7">
       </div>
     </section>
 
@@ -95,5 +101,47 @@
   </footer>
 
   <script async src="//www.instagram.com/embed.js"></script>
+
+  <script>
+    // === Menu mobile ===
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // === Fade-in on scroll ===
+    const faders = document.querySelectorAll('.fade');
+    const appearOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("appear");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+  <script>
+  // === Effetto parallasse sull'header ===
+  window.addEventListener('scroll', () => {
+    const hero = document.getElementById('hero');
+    const scrollY = window.scrollY;
+    hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
+  });
+</script>
 </body>
 </html>

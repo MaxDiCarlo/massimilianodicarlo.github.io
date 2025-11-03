@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Massimiliano Di Carlo – Videomaker</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/685/685655.png" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <!-- === Navbar === -->
   <nav>
     <div class="logo">Massimiliano Di Carlo</div>
@@ -26,6 +25,10 @@
 
   <!-- === Header === -->
   <header id="hero">
+    <picture>
+      <source srcset="header-mobile.webp" media="(max-width: 768px)">
+      <img src="header.webp" alt="Massimiliano Di Carlo" class="hero-img">
+    </picture>
     <div class="hero-content">
       <h1>Massimiliano Di Carlo</h1>
       <p class="subtitle">
@@ -78,9 +81,9 @@
     <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
   </footer>
 
-  <!-- === JS Menu e Video Hover === -->
+  <!-- === JS === -->
   <script>
-    // Menu mobile
+    // === Menu mobile ===
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => {
@@ -94,39 +97,48 @@
       });
     });
 
-    // Hover desktop per audio video
-    const videos = document.querySelectorAll('.video-item video');
-    videos.forEach(video => {
-      video.addEventListener('mouseenter', () => {
-        video.muted = false;
-        video.play();
-      });
-      video.addEventListener('mouseleave', () => {
-        video.muted = true;
-      });
-    });
-
-    // Fade-in on scroll
+    // === Fade-in on scroll ===
     const faders = document.querySelectorAll('.fade');
-    const appearOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px"
-    };
+    const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver(function(entries, observer) {
       entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
+        if(!entry.isIntersecting) return;
         entry.target.classList.add("appear");
         observer.unobserve(entry.target);
       });
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // Parallax header
+    // === Effetto parallasse header ===
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('hero');
-      hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
+      const scrollY = window.scrollY;
+      hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
+    });
+
+    // === Video click toggle audio ===
+    const videos = document.querySelectorAll('.video-item video');
+    videos.forEach(video => {
+      let clicked = false;
+
+      // Hover desktop: solo zoom
+      video.addEventListener('mouseenter', () => {
+        if(window.innerWidth > 768) video.play();
+      });
+      video.addEventListener('mouseleave', () => {
+        if(window.innerWidth > 768) video.pause();
+      });
+
+      // Click toggle audio (desktop e mobile)
+      video.addEventListener('click', () => {
+        if(!clicked){
+          video.play();
+          clicked = true;
+        } else {
+          video.muted = !video.muted; // toggle audio
+        }
+      });
     });
   </script>
-
 </body>
 </html>

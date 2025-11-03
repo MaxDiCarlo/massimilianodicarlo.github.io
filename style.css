@@ -101,7 +101,7 @@ header#hero {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  background: url('img/header.jpg') center/cover no-repeat;
   color: #fff;
   overflow: hidden;
   transition: background-position 0.2s ease-out;

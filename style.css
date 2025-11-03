@@ -1,4 +1,4 @@
-/* === Reset e base === */
+/* === RESET === */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,7 +16,7 @@ body {
   line-height: 1.6;
 }
 
-/* === Navbar === */
+/* === NAVBAR === */
 nav {
   position: sticky;
   top: 0;
@@ -54,7 +54,7 @@ nav {
   color: #ff5252;
 }
 
-/* === Menu hamburger === */
+/* === MENU MOBILE === */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -73,14 +73,16 @@ nav {
 .menu-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
 }
+
 .menu-toggle.active span:nth-child(2) {
   opacity: 0;
 }
+
 .menu-toggle.active span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
 }
 
-/* === Header Cinematico === */
+/* === HERO === */
 header#hero {
   position: relative;
   height: 100vh;
@@ -88,21 +90,16 @@ header#hero {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('https://raw.githubusercontent.com/MaxDiCarlo/massimilianodicarlo.github.io/main/header.jpg') center/cover no-repeat fixed;
+  background: url('https://raw.githubusercontent.com/MaxDiCarlo/massimilianodicarlo.github.io/main/header.jpg') center center / cover no-repeat;
   color: #fff;
   overflow: hidden;
 }
 
-header#hero::before {
+header#hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.75) 50%,
-    rgba(0, 0, 0, 0.9) 100%
-  );
+  background: rgba(0, 0, 0, 0.55);
   z-index: 1;
 }
 
@@ -110,7 +107,7 @@ header#hero::before {
   position: relative;
   z-index: 2;
   padding: 2rem;
-  max-width: 800px;
+  animation: fadeIn 1.5s ease;
 }
 
 .hero-content h1 {
@@ -127,7 +124,7 @@ header#hero::before {
   color: #ccc;
 }
 
-/* === Main layout === */
+/* === SEZIONI === */
 main {
   width: 90%;
   max-width: 1100px;
@@ -143,32 +140,47 @@ h2 {
   color: #fff;
 }
 
-/* === Video === */
+/* === VIDEO GRID === */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
 }
 
-.video-item iframe,
-.reel-container {
+.video-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-item iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 10px;
-  overflow: hidden;
-  filter: grayscale(100%) brightness(0.75);
-  transition: transform 0.4s ease, filter 0.4s ease;
+  border: none;
+  transition: all 0.4s ease;
+  filter: grayscale(100%) brightness(0.7);
 }
 
-.video-item iframe:hover,
+.video-item iframe:hover {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.03);
+}
+
+/* === INSTAGRAM REEL === */
+.reel-container {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: grayscale(100%) brightness(0.7);
+}
+
 .reel-container:hover {
   filter: grayscale(0%) brightness(1);
-  transform: scale(1.02);
-}
-
-.instagram-reel {
-  display: flex;
-  justify-content: center;
+  transform: scale(1.03);
 }
 
 .instagram-media {
@@ -176,7 +188,7 @@ h2 {
   margin: 0 auto !important;
 }
 
-/* === Foto === */
+/* === FOTO GRID === */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -185,11 +197,10 @@ h2 {
 
 .photo-grid img {
   width: 100%;
-  height: auto;
   border-radius: 8px;
   object-fit: cover;
-  filter: grayscale(100%) brightness(0.7);
   transition: all 0.4s ease;
+  filter: grayscale(100%) brightness(0.7);
 }
 
 .photo-grid img:hover {
@@ -197,7 +208,7 @@ h2 {
   transform: scale(1.03);
 }
 
-/* === Contatti === */
+/* === CONTATTI === */
 #contatti {
   text-align: center;
   margin-top: 3rem;
@@ -220,7 +231,7 @@ h2 {
   color: #ff5252;
 }
 
-/* === Footer === */
+/* === FOOTER === */
 footer {
   text-align: center;
   font-size: 0.9rem;
@@ -230,21 +241,61 @@ footer {
   border-top: 1px solid #222;
 }
 
-/* === Animazioni === */
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    flex-direction: column;
+    background: rgba(15, 15, 15, 0.95);
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: slideDown 0.4s ease;
+  }
+
+  .nav-links a {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+  }
+
+  header#hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content .subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* === ANIMAZIONI === */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* === Responsive === */
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-  .hero-content .subtitle {
-    font-size: 1rem;
-  }
-  .video-grid {
-    gap: 1rem;
-  }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.fade.appear {
+  opacity: 1;
+  transform: translateY(0);
 }

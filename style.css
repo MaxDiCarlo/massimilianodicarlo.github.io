@@ -101,7 +101,7 @@ header#hero {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('header.jpg') center/cover no-repeat;
+ background: url('https://raw.githubusercontent.com/MaxDiCarlo/massimilianodicarlo.github.io/main/header.jpg') center/cover no-repeat;
   color: #fff;
   overflow: hidden;
   transition: background-position 0.2s ease-out;

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- === Navbar === -->
+  <!-- Navbar -->
   <nav>
     <div class="logo">Massimiliano Di Carlo</div>
     <div class="menu-toggle" id="menu-toggle">
@@ -23,11 +23,11 @@
     </div>
   </nav>
 
-  <!-- === Header === -->
+  <!-- Header -->
   <header id="hero">
     <picture>
-      <source srcset="header-mobile.webp" media="(max-width: 768px)">
-      <img src="header.webp" alt="Massimiliano Di Carlo" class="hero-img">
+      <source srcset="header.webp" type="image/webp" media="(max-width: 768px)">
+      <img class="hero-img" src="header.webp" alt="Header">
     </picture>
     <div class="hero-content">
       <h1>Massimiliano Di Carlo</h1>
@@ -38,21 +38,22 @@
     </div>
   </header>
 
+  <!-- Main -->
   <main>
-    <!-- === Sezione Video === -->
+    <!-- Sezione Video -->
     <section id="video">
       <h2>Video</h2>
       <div class="video-grid">
         <div class="video-item fade">
-          <video src="marco.mp4" loop muted autoplay playsinline webkit-playsinline poster="marco-poster.jpg"></video>
+          <video src="marco.mp4" muted playsinline></video>
         </div>
         <div class="video-item fade">
-          <video src="davide.mp4" loop muted autoplay playsinline webkit-playsinline poster="davide-poster.jpg"></video>
+          <video src="davide.mp4" muted playsinline></video>
         </div>
       </div>
     </section>
 
-    <!-- === Sezione Foto === -->
+    <!-- Sezione Foto -->
     <section id="foto">
       <h2>Foto</h2>
       <div class="photo-grid">
@@ -60,13 +61,10 @@
         <img class="fade" src="MAX02227.jpg" alt="Foto 2">
         <img class="fade" src="MAX02305.jpg" alt="Foto 3">
         <img class="fade" src="MAX02640-4.jpg" alt="Foto 4">
-        <img class="fade" src="MAX03049.jpg" alt="Foto 5">
-        <img class="fade" src="MAX03103.jpg" alt="Foto 6">
-        <img class="fade" src="MAX03151.jpg" alt="Foto 7">
       </div>
     </section>
 
-    <!-- === Sezione Contatti === -->
+    <!-- Contatti -->
     <section id="contatti">
       <h2>Contatti</h2>
       <p>📩 <a href="mailto:maxvisuals.studio@gmail.com">massimilianodica@gmail.com</a></p>
@@ -81,9 +79,9 @@
     <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
   </footer>
 
-  <!-- === JS === -->
+  <!-- JS -->
   <script>
-    // === Menu mobile ===
+    // Menu mobile
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => {
@@ -97,47 +95,40 @@
       });
     });
 
-    // === Fade-in on scroll ===
+    // Fade-in scroll
     const faders = document.querySelectorAll('.fade');
     const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
+        if (!entry.isIntersecting) return;
         entry.target.classList.add("appear");
         observer.unobserve(entry.target);
       });
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // === Effetto parallasse header ===
-    window.addEventListener('scroll', () => {
-      const hero = document.getElementById('hero');
-      const scrollY = window.scrollY;
-      hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
-    });
-
-    // === Video click toggle audio ===
+    // Video hover + audio al secondo click
     const videos = document.querySelectorAll('.video-item video');
     videos.forEach(video => {
       let clicked = false;
-
-      // Hover desktop: solo zoom
-      video.addEventListener('mouseenter', () => {
-        if(window.innerWidth > 768) video.play();
-      });
-      video.addEventListener('mouseleave', () => {
-        if(window.innerWidth > 768) video.pause();
-      });
-
-      // Click toggle audio (desktop e mobile)
+      video.addEventListener('mouseenter', () => video.play());
+      video.addEventListener('mouseleave', () => video.pause());
       video.addEventListener('click', () => {
-        if(!clicked){
+        if (!clicked) {
+          video.muted = false;
           video.play();
           clicked = true;
         } else {
-          video.muted = !video.muted; // toggle audio
+          video.muted = true;
+          clicked = false;
         }
       });
+    });
+
+    // Header parallasse
+    window.addEventListener('scroll', () => {
+      const hero = document.getElementById('hero');
+      hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
     });
   </script>
 </body>

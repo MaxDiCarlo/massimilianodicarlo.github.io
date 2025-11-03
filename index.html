@@ -41,16 +41,10 @@
       <h2>Video</h2>
       <div class="video-grid">
         <div class="video-item fade">
-          <div class="video-wrapper">
-            <video class="hover-video" src="marco.mp4" muted loop playsinline></video>
-            <div class="video-overlay">▶️</div>
-          </div>
+          <video class="hover-video" src="marco.mp4" muted loop playsinline></video>
         </div>
         <div class="video-item fade">
-          <div class="video-wrapper">
-            <video class="hover-video" src="davide.mp4" muted loop playsinline></video>
-            <div class="video-overlay">▶️</div>
-          </div>
+          <video class="hover-video" src="davide.mp4" muted loop playsinline></video>
         </div>
       </div>
     </section>
@@ -102,41 +96,41 @@
 
     // Fade-in on scroll
     const faders = document.querySelectorAll('.fade');
-    const appearOptions = { threshold:0.15, rootMargin:"0px 0px -50px 0px" };
+    const appearOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
+        if (!entry.isIntersecting) return;
         entry.target.classList.add("appear");
         observer.unobserve(entry.target);
       });
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // Parallasse header
+    // Effetto parallasse header
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('hero');
-      hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
+      const scrollY = window.scrollY;
+      hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
     });
 
-    // Video hover e click audio
+    // Video hover con audio al click
     const hoverVideos = document.querySelectorAll('.hover-video');
     hoverVideos.forEach(video => {
-      const overlay = video.parentElement.querySelector('.video-overlay');
-
-      // Hover play
-      video.addEventListener('mouseenter', () => video.play());
-      video.addEventListener('mouseleave', () => { video.pause(); video.currentTime=0; });
-
-      // Click per audio
+      video.addEventListener('mouseenter', () => {
+        video.play();
+      });
+      video.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+      });
+      // click per attivare audio
       video.addEventListener('click', () => {
         video.muted = !video.muted;
-        overlay.style.display = video.muted ? "flex" : "none";
         if (!video.muted) video.play();
       });
-
-      // Overlay visibile solo al hover
-      video.parentElement.addEventListener('mouseenter', () => { overlay.style.display = "flex"; });
-      video.parentElement.addEventListener('mouseleave', () => { if(video.muted) overlay.style.display="none"; });
     });
   </script>
 </body>

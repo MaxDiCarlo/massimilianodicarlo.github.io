@@ -38,7 +38,7 @@ header#hero {
 /* Header mobile: immagine più leggera o più piccola */
 @media (max-width: 768px) {
   header#hero {
-    background: url('header.webp') center/cover no-repeat;
+    background: url('header-mobile.webp') center/cover no-repeat;
   }
 }
 

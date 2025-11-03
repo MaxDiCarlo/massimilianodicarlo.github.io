@@ -95,3 +95,16 @@ footer {
   font-size: 0.9rem;
   color: #999;
 }
+
+/* Layout per Reel verticali */
+.instagram-reel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.reel-container {
+  max-width: 360px;
+  width: 100%;
+}
+

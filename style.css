@@ -82,7 +82,7 @@ nav {
   transform: rotate(-45deg) translateY(-8px);
 }
 
-/* === HERO === */
+/* === HERO HEADER === */
 header#hero {
   position: relative;
   height: 100vh;
@@ -90,7 +90,7 @@ header#hero {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('https://raw.githubusercontent.com/MaxDiCarlo/massimilianodicarlo.github.io/main/header.jpg') center center / cover no-repeat;
+  background: url('https://raw.githubusercontent.com/MaxDiCarlo/massimilianodicarlo.github.io/main/header.jpg') center/cover no-repeat;
   color: #fff;
   overflow: hidden;
 }
@@ -99,7 +99,7 @@ header#hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0,0,0,0.35); /* overlay delicato */
   z-index: 1;
 }
 
@@ -153,34 +153,39 @@ h2 {
   align-items: center;
 }
 
+/* Video YouTube */
 .video-item iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 10px;
   border: none;
-  transition: all 0.4s ease;
-  filter: grayscale(100%) brightness(0.7);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  filter: brightness(1);
 }
 
 .video-item iframe:hover {
-  filter: grayscale(0%) brightness(1);
-  transform: scale(1.03);
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  filter: brightness(1.05);
 }
 
-/* === INSTAGRAM REELS === */
+/* Instagram Reels */
 .reel-container {
   width: 100%;
   max-width: 400px;
   aspect-ratio: 9 / 16;
   overflow: hidden;
   border-radius: 10px;
-  transition: transform 0.4s ease, filter 0.4s ease;
-  filter: grayscale(100%) brightness(0.7);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  filter: brightness(1);
 }
 
 .reel-container:hover {
-  filter: grayscale(0%) brightness(1);
-  transform: scale(1.03);
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  filter: brightness(1.05);
 }
 
 .reel-container blockquote.instagram-media {
@@ -198,16 +203,18 @@ h2 {
 
 .photo-grid img {
   width: 100%;
-  max-height: 400px; /* limite altezza per evitare immagini enormi */
+  max-height: 400px;
   object-fit: cover;
-  border-radius: 8px;
-  transition: all 0.4s ease;
-  filter: grayscale(100%) brightness(0.7);
+  border-radius: 10px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  filter: brightness(1);
 }
 
 .photo-grid img:hover {
-  filter: grayscale(0%) brightness(1);
   transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  filter: brightness(1.05);
 }
 
 /* === CONTATTI === */

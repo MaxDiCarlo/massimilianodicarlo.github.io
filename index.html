@@ -24,49 +24,32 @@
     </div>
   </nav>
 
- <header id="hero">
-  <div class="hero-content">
-    <h1>Massimiliano Di Carlo</h1>
-    <p class="subtitle">
-      Videomaker, fotografo, editor.<br>
-      Creo immagini che parlano la lingua del tuo brand — eventi, portrait, visual identity.
-    </p>
-  </div>
-</header>
+  <!-- === Header === -->
+  <header id="hero">
+    <div class="hero-content">
+      <h1>Massimiliano Di Carlo</h1>
+      <p class="subtitle">
+        Videomaker, fotografo, editor.<br>
+        Creo immagini che parlano la lingua del tuo brand — eventi, portrait, visual identity.
+      </p>
+    </div>
+  </header>
 
   <main>
     <!-- === Sezione Video === -->
     <section id="video">
       <h2>Video</h2>
       <div class="video-grid">
-        <div class="video-item fade">
-          <div class="reel-container">
-            <blockquote class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/reel/DQmE4UkDKB-/"
-              data-instgrm-version="14"
-              style="background:#000; border:0; margin:0 auto;">
-            </blockquote>
-          </div>
+        <!-- Video Marco -->
+        <div class="video-item video-preview fade">
+          <video src="marco.MOV" muted loop preload="metadata"></video>
+          <img src="marco-placeholder.jpg" alt="Marco">
         </div>
 
-        <div class="video-item fade">
-          <div class="reel-container">
-            <blockquote class="instagram-media"
-              data-instgrm-permalink="https://www.instagram.com/reel/DNlJv0lM6a6/"
-              data-instgrm-version="14"
-              style="background:#000; border:0; margin:0 auto;">
-            </blockquote>
-          </div>
-        </div>
-
-        <div class="video-item fade">
-          <iframe src="https://www.youtube.com/embed/Kn2M-44kuvE"
-            frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <div class="video-item fade">
-          <iframe src="https://www.youtube.com/embed/QW-q1pNTRL8"
-            frameborder="0" allowfullscreen></iframe>
+        <!-- Video Davide -->
+        <div class="video-item video-preview fade">
+          <video src="davide.MOV" muted loop preload="metadata"></video>
+          <img src="davide-placeholder.jpg" alt="Davide">
         </div>
       </div>
     </section>
@@ -100,10 +83,9 @@
     <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
   </footer>
 
-  <script async src="//www.instagram.com/embed.js"></script>
-
+  <!-- === Script === -->
   <script>
-    // === Menu mobile ===
+    // Menu mobile
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => {
@@ -117,31 +99,24 @@
       });
     });
 
-    // === Fade-in on scroll ===
+    // Fade-in on scroll
     const faders = document.querySelectorAll('.fade');
-    const appearOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px"
-    };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add("appear");
         observer.unobserve(entry.target);
       });
     }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
 
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
+    // Parallax header
+    window.addEventListener('scroll', () => {
+      const hero = document.getElementById('hero');
+      const scrollY = window.scrollY;
+      hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
     });
   </script>
-  <script>
-  // === Effetto parallasse sull'header ===
-  window.addEventListener('scroll', () => {
-    const hero = document.getElementById('hero');
-    const scrollY = window.scrollY;
-    hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
-  });
-</script>
 </body>
 </html>

@@ -40,22 +40,11 @@
     <section id="video">
       <h2>Video</h2>
       <div class="video-grid">
-        <!-- Video 1 -->
         <div class="video-item fade">
-          <div class="video-preview">
-            <video src="marco.MOV" loop playsinline preload="metadata"></video>
-            <img src="marco-placeholder.jpg" alt="Marco Video">
-            <button class="play-btn">▶️</button>
-          </div>
+          <video class="hover-video" src="marco.mp4" muted loop playsinline></video>
         </div>
-
-        <!-- Video 2 -->
         <div class="video-item fade">
-          <div class="video-preview">
-            <video src="davide.MOV" loop playsinline preload="metadata"></video>
-            <img src="davide-placeholder.jpg" alt="Davide Video">
-            <button class="play-btn">▶️</button>
-          </div>
+          <video class="hover-video" src="davide.mp4" muted loop playsinline></video>
         </div>
       </div>
     </section>
@@ -91,7 +80,7 @@
 
   <!-- === JS === -->
   <script>
-    // === Navbar mobile toggle ===
+    // Menu mobile
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => {
@@ -105,9 +94,12 @@
       });
     });
 
-    // === Fade-in on scroll ===
+    // Fade-in on scroll
     const faders = document.querySelectorAll('.fade');
-    const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+    const appearOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -117,37 +109,27 @@
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // === Header parallasse ===
+    // Effetto parallasse header
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('hero');
-      hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
+      const scrollY = window.scrollY;
+      hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
     });
 
-    // === Video hover + click audio ===
-    const videoPreviews = document.querySelectorAll('.video-preview');
-
-    videoPreviews.forEach(container => {
-      const video = container.querySelector('video');
-      const placeholder = container.querySelector('img');
-      const btn = container.querySelector('.play-btn');
-
-      container.addEventListener('mouseenter', () => {
-        video.muted = true;
-        placeholder.style.opacity = 0;
+    // Video hover con audio al click
+    const hoverVideos = document.querySelectorAll('.hover-video');
+    hoverVideos.forEach(video => {
+      video.addEventListener('mouseenter', () => {
         video.play();
       });
-
-      container.addEventListener('mouseleave', () => {
+      video.addEventListener('mouseleave', () => {
         video.pause();
         video.currentTime = 0;
-        placeholder.style.opacity = 1;
-        btn.style.display = "block";
       });
-
-      btn.addEventListener('click', () => {
-        video.muted = false;
-        video.play();
-        btn.style.display = 'none';
+      // click per attivare audio
+      video.addEventListener('click', () => {
+        video.muted = !video.muted;
+        if (!video.muted) video.play();
       });
     });
   </script>

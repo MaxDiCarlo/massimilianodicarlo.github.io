@@ -7,8 +7,9 @@
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/685/685655.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <!-- Navbar -->
+  <!-- === Navbar === -->
   <nav>
     <div class="logo">Massimiliano Di Carlo</div>
     <div class="menu-toggle" id="menu-toggle">
@@ -23,7 +24,7 @@
     </div>
   </nav>
 
-  <!-- Header -->
+  <!-- === Header === -->
   <header id="hero">
     <div class="hero-content">
       <h1>Massimiliano Di Carlo</h1>
@@ -35,39 +36,41 @@
   </header>
 
   <main>
-    <!-- Video Section -->
+    <!-- === Sezione Video === -->
     <section id="video">
       <h2>Video</h2>
       <div class="video-grid">
         <!-- Video 1 -->
         <div class="video-item video-preview fade">
-          <video src="marco.MOV" muted loop autoplay playsinline preload="metadata"></video>
+          <video src="marco.MOV" muted loop playsinline preload="metadata"></video>
           <img src="marco-placeholder.jpg" alt="Marco Video">
+          <button class="play-btn">▶️</button>
         </div>
 
         <!-- Video 2 -->
         <div class="video-item video-preview fade">
-          <video src="davide.MOV" muted loop autoplay playsinline preload="metadata"></video>
+          <video src="davide.MOV" muted loop playsinline preload="metadata"></video>
           <img src="davide-placeholder.jpg" alt="Davide Video">
+          <button class="play-btn">▶️</button>
         </div>
       </div>
     </section>
 
-    <!-- Foto Section -->
+    <!-- === Sezione Foto === -->
     <section id="foto">
       <h2>Foto</h2>
       <div class="photo-grid">
-        <img class="fade hover-effect" src="MAX02125.jpg" alt="Foto 1">
-        <img class="fade hover-effect" src="MAX02227.jpg" alt="Foto 2">
-        <img class="fade hover-effect" src="MAX02305.jpg" alt="Foto 3">
-        <img class="fade hover-effect" src="MAX02640-4.jpg" alt="Foto 4">
-        <img class="fade hover-effect" src="MAX03049.jpg" alt="Foto 5">
-        <img class="fade hover-effect" src="MAX03103.jpg" alt="Foto 6">
-        <img class="fade hover-effect" src="MAX03151.jpg" alt="Foto 7">
+        <img class="fade" src="MAX02125.jpg" alt="Foto 1">
+        <img class="fade" src="MAX02227.jpg" alt="Foto 2">
+        <img class="fade" src="MAX02305.jpg" alt="Foto 3">
+        <img class="fade" src="MAX02640-4.jpg" alt="Foto 4">
+        <img class="fade" src="MAX03049.jpg" alt="Foto 5">
+        <img class="fade" src="MAX03103.jpg" alt="Foto 6">
+        <img class="fade" src="MAX03151.jpg" alt="Foto 7">
       </div>
     </section>
 
-    <!-- Contatti Section -->
+    <!-- === Sezione Contatti === -->
     <section id="contatti">
       <h2>Contatti</h2>
       <p>📩 <a href="mailto:maxvisuals.studio@gmail.com">massimilianodica@gmail.com</a></p>
@@ -82,8 +85,9 @@
     <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
   </footer>
 
+  <!-- === JS alla fine del body === -->
   <script>
-    // Menu mobile
+    // === Navbar mobile toggle ===
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => {
@@ -97,7 +101,7 @@
       });
     });
 
-    // Fade-in on scroll
+    // === Fade-in on scroll ===
     const faders = document.querySelectorAll('.fade');
     const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -109,10 +113,41 @@
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // Effetto parallasse header
+    // === Header parallasse ===
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('hero');
-      hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
+      const scrollY = window.scrollY;
+      hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
+    });
+
+    // === Video hover + click audio ===
+    const videoPreviews = document.querySelectorAll('.video-preview');
+
+    videoPreviews.forEach(container => {
+      const video = container.querySelector('video');
+      const placeholder = container.querySelector('img');
+      const btn = container.querySelector('.play-btn');
+
+      // Hover → video silenzioso
+      container.addEventListener('mouseenter', () => {
+        video.muted = true;
+        placeholder.style.opacity = 0;
+        video.play();
+      });
+
+      container.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+        placeholder.style.opacity = 1;
+        btn.style.display = "block"; // mostra il pulsante di nuovo
+      });
+
+      // Click → attiva audio
+      btn.addEventListener('click', () => {
+        video.muted = false;
+        video.play();
+        btn.style.display = 'none';
+      });
     });
   </script>
 </body>

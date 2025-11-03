@@ -1,110 +1,151 @@
-/* Stile generale */
+/* === Stile base === */
 body {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif;
   margin: 0;
-  background-color: #0e0e0e;
-  color: #f5f5f5;
-  font-family: "Poppins", Arial, sans-serif;
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
 header {
   text-align: center;
-  padding: 6rem 1rem 3rem 1rem;
+  padding: 3rem 1rem 2rem;
+  animation: fadeIn 1.5s ease;
 }
 
-h1 {
-  font-size: 2.8rem;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 .subtitle {
-  max-width: 700px;
-  margin: 0 auto;
-  font-weight: 300;
-  font-size: 1.1rem;
-  color: #cfcfcf;
+  font-size: 1rem;
+  color: #aaa;
+  margin-top: 1rem;
+  line-height: 1.5;
 }
 
-/* Sezioni */
-section {
-  padding: 4rem 2rem;
-  text-align: center;
+main {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 1.5rem;
   border-bottom: 1px solid #333;
-  display: inline-block;
   padding-bottom: 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: #fff;
+  letter-spacing: 1px;
 }
 
-/* Griglia video */
+/* === Sezione Video === */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  justify-items: center;
 }
 
 .video-item iframe {
   width: 100%;
-  height: 220px;
-  border-radius: 10px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  filter: grayscale(100%) brightness(0.7);
 }
 
-/* Griglia foto */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
+.video-item iframe:hover {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.02);
 }
 
-.photo-grid img {
-  width: 100%;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.photo-grid img:hover {
-  transform: scale(1.05);
-}
-
-/* Contatti */
-#contatti a {
-  color: #f5f5f5;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-#contatti a:hover {
-  color: #ffcc66;
-}
-
-.social {
-  margin-top: 1rem;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  border-top: 1px solid #222;
-  font-size: 0.9rem;
-  color: #999;
-}
-
-/* Layout per Reel verticali */
+/* === Reel Instagram === */
 .instagram-reel {
-  width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .reel-container {
-  max-width: 360px;
   width: 100%;
+  max-width: 400px;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: grayscale(100%) brightness(0.7);
 }
 
+.reel-container:hover {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.02);
+}
+
+.instagram-media {
+  width: 100% !important;
+  min-width: auto !important;
+  margin: 0 auto !important;
+}
+
+/* === Sezione Foto === */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: all 0.4s ease;
+  filter: grayscale(100%) brightness(0.7);
+}
+
+.photo-grid img:hover {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.03);
+}
+
+/* === Contatti === */
+#contatti {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.social a {
+  color: #e0e0e0;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.social a:hover {
+  color: #ff5252;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid #222;
+}
+
+/* === Animazioni === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

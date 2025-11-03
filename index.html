@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- === Navbar === -->
   <nav>
     <div class="logo">Massimiliano Di Carlo</div>
     <div class="menu-toggle" id="menu-toggle">
@@ -23,12 +23,8 @@
     </div>
   </nav>
 
-  <!-- Header -->
+  <!-- === Header === -->
   <header id="hero">
-    <picture>
-      <source srcset="header.webp" type="image/webp" media="(max-width: 768px)">
-      <img class="hero-img" src="header.webp" alt="Header">
-    </picture>
     <div class="hero-content">
       <h1>Massimiliano Di Carlo</h1>
       <p class="subtitle">
@@ -38,22 +34,21 @@
     </div>
   </header>
 
-  <!-- Main -->
   <main>
-    <!-- Sezione Video -->
+    <!-- === Sezione Video === -->
     <section id="video">
       <h2>Video</h2>
       <div class="video-grid">
         <div class="video-item fade">
-          <video src="marco.mp4" muted playsinline></video>
+          <video id="marco" src="marco.MP4" muted loop playsinline></video>
         </div>
         <div class="video-item fade">
-          <video src="davide.mp4" muted playsinline></video>
+          <video id="davide" src="davide.MP4" muted loop playsinline></video>
         </div>
       </div>
     </section>
 
-    <!-- Sezione Foto -->
+    <!-- === Sezione Foto === -->
     <section id="foto">
       <h2>Foto</h2>
       <div class="photo-grid">
@@ -61,10 +56,13 @@
         <img class="fade" src="MAX02227.jpg" alt="Foto 2">
         <img class="fade" src="MAX02305.jpg" alt="Foto 3">
         <img class="fade" src="MAX02640-4.jpg" alt="Foto 4">
+        <img class="fade" src="MAX03049.jpg" alt="Foto 5">
+        <img class="fade" src="MAX03103.jpg" alt="Foto 6">
+        <img class="fade" src="MAX03151.jpg" alt="Foto 7">
       </div>
     </section>
 
-    <!-- Contatti -->
+    <!-- === Sezione Contatti === -->
     <section id="contatti">
       <h2>Contatti</h2>
       <p>📩 <a href="mailto:maxvisuals.studio@gmail.com">massimilianodica@gmail.com</a></p>
@@ -79,9 +77,8 @@
     <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
   </footer>
 
-  <!-- JS -->
   <script>
-    // Menu mobile
+    // === Menu mobile ===
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => {
@@ -95,7 +92,7 @@
       });
     });
 
-    // Fade-in scroll
+    // === Fade-in on scroll ===
     const faders = document.querySelectorAll('.fade');
     const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -107,25 +104,26 @@
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // Video hover + audio al secondo click
-    const videos = document.querySelectorAll('.video-item video');
-    videos.forEach(video => {
-      let clicked = false;
-      video.addEventListener('mouseenter', () => video.play());
-      video.addEventListener('mouseleave', () => video.pause());
+    // === Video hover play + audio toggle ===
+    const marco = document.getElementById('marco');
+    const davide = document.getElementById('davide');
+
+    [marco, davide].forEach(video => {
+      let audioPlaying = false;
+      video.addEventListener('mouseenter', () => { video.play(); });
+      video.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+
       video.addEventListener('click', () => {
-        if (!clicked) {
+        if(video.muted) {
           video.muted = false;
           video.play();
-          clicked = true;
         } else {
           video.muted = true;
-          clicked = false;
         }
       });
     });
 
-    // Header parallasse
+    // === Parallax header ===
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('hero');
       hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;

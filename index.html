@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- === Navbar === -->
   <nav>
     <div class="logo">Massimiliano Di Carlo</div>
     <div class="menu-toggle" id="menu-toggle">
@@ -24,7 +24,7 @@
     </div>
   </nav>
 
-  <!-- Header -->
+  <!-- === Header === -->
   <header id="hero">
     <div class="hero-content">
       <h1>Massimiliano Di Carlo</h1>
@@ -36,20 +36,20 @@
   </header>
 
   <main>
-    <!-- Video Section -->
+    <!-- === Sezione Video === -->
     <section id="video">
       <h2>Video</h2>
       <div class="video-grid">
         <div class="video-item fade">
-          <video src="marco.mp4" poster="marco-poster.jpg" loop playsinline webkit-playsinline></video>
+          <video src="marco.mp4" loop muted autoplay playsinline webkit-playsinline poster="marco-poster.jpg"></video>
         </div>
         <div class="video-item fade">
-          <video src="davide.mp4" poster="davide-poster.jpg" loop playsinline webkit-playsinline></video>
+          <video src="davide.mp4" loop muted autoplay playsinline webkit-playsinline poster="davide-poster.jpg"></video>
         </div>
       </div>
     </section>
 
-    <!-- Foto Section -->
+    <!-- === Sezione Foto === -->
     <section id="foto">
       <h2>Foto</h2>
       <div class="photo-grid">
@@ -63,7 +63,7 @@
       </div>
     </section>
 
-    <!-- Contatti Section -->
+    <!-- === Sezione Contatti === -->
     <section id="contatti">
       <h2>Contatti</h2>
       <p>📩 <a href="mailto:maxvisuals.studio@gmail.com">massimilianodica@gmail.com</a></p>
@@ -78,7 +78,7 @@
     <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
   </footer>
 
-  <!-- JS -->
+  <!-- === JS Menu e Video Hover === -->
   <script>
     // Menu mobile
     const toggle = document.getElementById('menu-toggle');
@@ -94,35 +94,27 @@
       });
     });
 
-    // Video audio toggle
+    // Hover desktop per audio video
     const videos = document.querySelectorAll('.video-item video');
     videos.forEach(video => {
-      video.muted = true;
-      video.play();
-
-      let audioActive = false;
-
       video.addEventListener('mouseenter', () => {
-        if (window.innerWidth >= 768) video.play(); // hover desktop, muted
+        video.muted = false;
+        video.play();
       });
-
-      video.addEventListener('click', () => {
-        if (video.muted) {
-          video.muted = false;
-          audioActive = true;
-        } else {
-          video.muted = true;
-          audioActive = false;
-        }
+      video.addEventListener('mouseleave', () => {
+        video.muted = true;
       });
     });
 
-    // Fade-in
+    // Fade-in on scroll
     const faders = document.querySelectorAll('.fade');
-    const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    const appearOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
       entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
+        if (!entry.isIntersecting) return;
         entry.target.classList.add("appear");
         observer.unobserve(entry.target);
       });
@@ -135,5 +127,6 @@
       hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
     });
   </script>
+
 </body>
 </html>

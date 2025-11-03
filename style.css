@@ -1,310 +1,86 @@
-/* === RESET BASE === */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* === Reset e base === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background-color: #0d0d0d; color: #e0e0e0; font-family: 'Inter', sans-serif; line-height: 1.6; }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #0d0d0d;
-  color: #e0e0e0;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-}
-
-/* === NAVBAR === */
+/* === Navbar === */
 nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(15, 15, 15, 0.85);
-  backdrop-filter: blur(10px);
-  padding: 0.8rem 2rem;
-  border-bottom: 1px solid #222;
+  position: sticky; top: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(10px);
+  padding: 0.8rem 2rem; border-bottom: 1px solid #222;
 }
+.logo { font-weight: 600; letter-spacing: 1px; color: #fff; font-size: 1rem; }
+.nav-links { display: flex; align-items: center; }
+.nav-links a { color: #e0e0e0; text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; transition: color 0.3s ease; }
+.nav-links a:hover { color: #ff5252; }
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+.menu-toggle span { width: 25px; height: 3px; background: #e0e0e0; border-radius: 2px; transition: all 0.3s ease; }
+.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translateY(8px); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
 
-.logo {
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: #fff;
-  font-size: 1rem;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-
-.nav-links a {
-  color: #e0e0e0;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  font-size: 0.95rem;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #ff5252;
-}
-
-/* === MENU MOBILE === */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: #e0e0e0;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
-}
-
-/* === HERO HEADER === */
+/* === Header === */
 header#hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: relative; height: 100vh;
+  display: flex; justify-content: center; align-items: center; text-align: center;
   background: url('https://raw.githubusercontent.com/MaxDiCarlo/massimilianodicarlo.github.io/main/header.jpg') center/cover no-repeat;
-  color: #fff;
-  overflow: hidden;
+  color: #fff; overflow: hidden; transition: background-position 0.2s ease-out;
 }
-
 header#hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35); /* overlay delicato */
-  z-index: 1;
+  content: ""; position: absolute; inset: 0;
+  background: rgba(0,0,0,0.55); z-index: 1;
 }
+.hero-content { position: relative; z-index: 2; padding: 2rem; }
+.hero-content h1 { font-size: 3rem; letter-spacing: 1px; margin-bottom: 1rem; }
+.hero-content .subtitle { font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+.subtitle { font-size: 1rem; color: #aaa; margin-top: 1rem; }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
-  animation: fadeIn 1.5s ease;
+/* === Main layout === */
+main { width: 90%; max-width: 1100px; margin: 0 auto; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 3rem; margin-bottom: 2rem; color: #fff; }
+
+/* === Video Grid === */
+.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+
+/* === Video preview hover === */
+.video-preview {
+  position: relative; width: 100%; padding-top: 56.25%; overflow: hidden; border-radius: 8px; cursor: pointer;
 }
-
-.hero-content h1 {
-  font-size: 3rem;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
+.video-preview video,
+.video-preview img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
+.video-preview video { opacity: 0; z-index: 2; }
+.video-preview img { z-index: 1; }
+.video-preview:hover video { opacity: 1; }
+.video-preview:hover img { opacity: 0; }
 
-.hero-content .subtitle {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-  color: #ccc;
-}
+/* === Foto === */
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+.photo-grid img { width: 100%; height: auto; border-radius: 8px; object-fit: cover; transition: all 0.4s ease; }
 
-/* === SEZIONI === */
-main {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+/* === Contatti === */
+#contatti { text-align: center; margin-top: 3rem; }
+#contatti a { color: #e0e0e0; text-decoration: none; }
+.social a { color: #e0e0e0; margin: 0 10px; text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+.social a:hover { color: #ff5252; }
 
-h2 {
-  font-size: 1.6rem;
-  border-bottom: 1px solid #333;
-  padding-bottom: 0.5rem;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  color: #fff;
-}
+/* === Footer === */
+footer { text-align: center; font-size: 0.9rem; color: #555; padding: 2rem 0; margin-top: 3rem; border-top: 1px solid #222; }
 
-/* === VIDEO GRID === */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-
-.video-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Video YouTube */
-.video-item iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 10px;
-  border: none;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  filter: brightness(1);
-}
-
-.video-item iframe:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  filter: brightness(1.05);
-}
-
-/* Instagram Reels */
-.reel-container {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 9 / 16;
-  overflow: hidden;
-  border-radius: 10px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  filter: brightness(1);
-}
-
-.reel-container:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  filter: brightness(1.05);
-}
-
-.reel-container blockquote.instagram-media {
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 auto !important;
-}
-
-/* === FOTO GRID === */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.photo-grid img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  filter: brightness(1);
-}
-
-.photo-grid img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  filter: brightness(1.05);
-}
-
-/* === CONTATTI === */
-#contatti {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-#contatti a {
-  color: #e0e0e0;
-  text-decoration: none;
-}
-
-.social a {
-  color: #e0e0e0;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.social a:hover {
-  color: #ff5252;
-}
-
-/* === FOOTER === */
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
-  padding: 2rem 0;
-  margin-top: 3rem;
-  border-top: 1px solid #222;
-}
-
-/* === RESPONSIVE === */
+/* === Responsive === */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
-
+  .menu-toggle { display: flex; }
   .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    flex-direction: column;
-    background: rgba(15, 15, 15, 0.95);
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    display: none;
+    position: absolute; top: 60px; right: 0; flex-direction: column;
+    background: rgba(15, 15, 15, 0.95); width: 100%; text-align: center; padding: 1rem 0; display: none;
   }
-
-  .nav-links.active {
-    display: flex;
-    animation: slideDown 0.4s ease;
-  }
-
-  .nav-links a {
-    margin: 1rem 0;
-    font-size: 1.1rem;
-  }
-
-  header#hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-content .subtitle {
-    font-size: 1rem;
-  }
+  .nav-links.active { display: flex; animation: slideDown 0.4s ease; }
+  .nav-links a { margin: 1rem 0; font-size: 1.1rem; }
 }
 
-/* === ANIMAZIONI === */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-}
-
-.fade.appear {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* === Animazioni fade === */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity:

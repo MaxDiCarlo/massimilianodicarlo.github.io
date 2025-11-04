@@ -232,7 +232,7 @@ h2 {
   margin-bottom: 3rem;
 }
 
-.video-subtitle h3 {
+.video-subtitle{
   font-family: 'Oswald', sans-serif;
   font-size: 1.2rem;
   color: #f5f5f5;
@@ -245,18 +245,10 @@ h2 {
   transition: text-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.video-subtitle h3:hover {
+.video-subtitle:hover {
   transform: scale(1.03);
   text-shadow: 0 0 10px rgba(0, 255, 220, 0.8),
                0 0 20px rgba(0, 255, 220, 0.5);
-}
-
-/* versione mobile: riduciamo un po' la dimensione */
-@media (max-width: 768px) {
-  .video-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 0.75rem;
-  }
 }
 
 /* === Foto === */

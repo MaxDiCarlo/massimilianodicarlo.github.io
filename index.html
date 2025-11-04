@@ -6,93 +6,73 @@
   <title>Massimiliano Di Carlo – Videomaker</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/685/685655.png">
-  <!-- Google Fonts: Oswald e Roboto -->
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- === Navbar === -->
-<nav>
-  <div class="logo">Massimiliano Di Carlo</div>
+  <nav>
+    <div class="logo">Massimiliano Di Carlo</div>
 
-  <div class="nav-links" id="nav-links">
-    <a href="#video">Video</a>
-    <a href="#foto">Foto</a>
-    <a href="#contatti">Contatti</a>
-  </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#video">Video</a>
+      <a href="#foto">Foto</a>
+      <a href="#contatti">Contatti</a>
+    </div>
 
-  <div class="social-links">
-    <a href="https://www.instagram.com/maxvisuals.studio/" target="_blank" aria-label="Instagram">
-      <img src="instagram-icon.svg" alt="Instagram" />
-    </a>
-    <a href="https://www.youtube.com/@massimilianodicarlo98" target="_blank" aria-label="YouTube">
-      <img src="youtube-icon.svg" alt="YouTube" />
-    </a>
-    <a href="mailto:maxvisuals.studio@gmail.com" aria-label="Email">
-      <img src="email-icon.svg" alt="Email" />
-    </a>
-  </div>
+    <div class="social-links">
+      <a href="https://www.instagram.com/maxvisuals.studio/" target="_blank" aria-label="Instagram">
+        <img src="instagram-icon.svg" alt="Instagram" />
+      </a>
+      <a href="https://www.youtube.com/@massimilianodicarlo98" target="_blank" aria-label="YouTube">
+        <img src="youtube-icon.svg" alt="YouTube" />
+      </a>
+      <a href="mailto:maxvisuals.studio@gmail.com" aria-label="Email">
+        <img src="email-icon.svg" alt="Email" />
+      </a>
+    </div>
 
-  <div class="menu-toggle" id="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</nav>
-
-<script>
-  // Toggle menu mobile
-  const toggle = document.getElementById('menu-toggle');
-  const navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-  });
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.classList.remove('active');
-      navLinks.classList.remove('active');
-    });
-  });
-</script>
-
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
 
   <!-- === Header === -->
- <header id="hero">
-  <div class="hero-content">
-    <h1>Massimiliano Di Carlo</h1>
-    <p class="subtitle">
-      Videomaker, fotografo, editor.<br>
-      Creo immagini che parlano la lingua del tuo brand — eventi, portrait, visual identity.
-    </p>
-  </div>
-</header>
+  <header id="hero">
+    <div class="hero-content">
+      <h1>Massimiliano Di Carlo</h1>
+      <p class="subtitle">
+        Videomaker, fotografo, editor.<br>
+        Creo immagini che parlano la lingua del tuo brand — eventi, portrait, visual identity.
+      </p>
+    </div>
+  </header>
 
   <main>
     <!-- === Sezione Video === -->
- <section id="video">
-  <h2>Video</h2>
-  <div class="video-grid">
-    <div class="video-item fade">
-      <video src="marco.mp4" loop muted autoplay playsinline webkit-playsinline></video>
-    </div>
-    <div class="video-item fade">
-      <video src="davide.mp4" loop muted autoplay playsinline webkit-playsinline></video>
-    </div>
-    <div class="video-item fade">
-      <video src="hotel1.mp4" loop muted autoplay playsinline webkit-playsinline></video>
-    </div>
-    <div class="video-item fade">
-      <video src="hotel3.mp4" loop muted autoplay playsinline webkit-playsinline></video>
-    </div>
-     <div class="video-item fade">
-      <video src="hotel2.mp4" loop muted autoplay playsinline webkit-playsinline></video>
-    </div>
-    <!-- aggiungi altri video qui se vuoi -->
-  </div>
-</section>
-
+    <section id="video">
+      <h2>Video</h2>
+      <div class="video-grid">
+        <div class="video-item fade">
+          <video src="marco.mp4" loop muted autoplay playsinline webkit-playsinline></video>
+        </div>
+        <div class="video-item fade">
+          <video src="davide.mp4" loop muted autoplay playsinline webkit-playsinline></video>
+        </div>
+        <div class="video-item fade">
+          <video src="hotel1.mp4" loop muted autoplay playsinline webkit-playsinline></video>
+        </div>
+        <div class="video-item fade">
+          <video src="hotel3.mp4" loop muted autoplay playsinline webkit-playsinline></video>
+        </div>
+        <div class="video-item fade">
+          <video src="hotel2.mp4" loop muted autoplay playsinline webkit-playsinline></video>
+        </div>
+      </div>
+    </section>
 
     <!-- === Sezione Foto === -->
     <section id="foto">

@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background-color: #475259;
+  background-color: #2c2e32;
   color: #e0e0e0;
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
@@ -43,7 +43,7 @@ nav {
   justify-content: center;
   flex: 1;
   gap: 8rem;
-  margin-right: 3rem;
+  margin-right: 1rem;
 }
 
 .nav-links a {

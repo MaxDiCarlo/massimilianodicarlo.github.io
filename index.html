@@ -6,136 +6,111 @@
   <title>Massimiliano Di Carlo – Videomaker</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/685/685655.png">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- === Navbar === -->
-<nav>
-  <div class="logo">Massimiliano Di Carlo<br>Videomaker</div>
-
-  <div class="nav-links" id="nav-links">
-    <a href="#video">Video</a>
-    <a href="#foto">Foto</a>
-    <a href="#contatti">Contatti</a>
-  </div>
-
-  <div class="social-links">
-    <a href="https://www.instagram.com/maxvisuals.studio/" target="_blank" aria-label="Instagram">
-      <img src="instagram-icon.svg" alt="Instagram" />
-    </a>
-     <a href="mailto:maxvisuals.studio@gmail.com" aria-label="Email">
-      <img src="email-icon.svg" alt="Email" />
-    </a>
-    <a href="https://www.youtube.com/@massimilianodicarlo98" target="_blank" aria-label="YouTube">
-      <img src="youtube-icon.svg" alt="YouTube" />
-    </a>
-  </div>
-
-  <div class="menu-toggle" id="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</nav>
-
-<!-- === Header === -->
-<header id="hero">
-  <div class="hero-content">
-    <h1>Massimiliano Di Carlo</h1>
-    <p class="subtitle">
-      Videomaker, fotografo, editor.<br>
-      Creo immagini che parlano la lingua del tuo brand — eventi, portrait, visual identity.
-    </p>
-  </div>
-</header>
-
-<main>
-  <!-- Sezione Video -->
-  <section id="video">
-    <h2>Video</h2>
-    <div class="video-grid">
-      <div class="video-item fade"><video src="marco.mp4" loop muted autoplay playsinline></video></div>
-      <div class="video-item fade"><video src="davide.mp4" loop muted autoplay playsinline></video></div>
-      <div class="video-item fade"><video src="hotel1.mp4" loop muted autoplay playsinline></video></div>
-      <div class="video-item fade"><video src="hotel3.mp4" loop muted autoplay playsinline></video></div>
-      <div class="video-item fade"><video src="hotel2.mp4" loop muted autoplay playsinline></video></div>
+  <!-- === Navbar === -->
+  <nav>
+    <div class="logo">
+      <div class="logo-line1">Massimiliano Di Carlo</div>
+      <div class="logo-line2">Videomaker</div>
     </div>
-  </section>
 
-  <!-- Sezione Foto -->
-  <section id="foto">
-    <h2>Foto</h2>
-    <div class="photo-grid">
-      <img class="fade" src="MAX02125.jpg" alt="Foto 1">
-      <img class="fade" src="MAX02305.jpg" alt="Foto 2">
-      <img class="fade" src="MAX01602.JPG" alt="Foto 3">
-      <img class="fade" src="MAX01644.JPG" alt="Foto 4">
-      <img class="fade" src="MAX02227.jpg" alt="Foto 5">
-      <img class="fade" src="MAX02640-4.jpg" alt="Foto 6">
-      <img class="fade" src="MAX03049.jpg" alt="Foto 7">
-      <img class="fade" src="MAX03151.jpg" alt="Foto 8">
+    <div class="nav-links" id="nav-links">
+      <a href="#video">Video</a>
+      <a href="#foto">Foto</a>
+      <a href="#contatti">Contatti</a>
     </div>
-  </section>
 
-  <!-- Sezione Contatti -->
-  <section id="contatti">
-    <h2>Contatti</h2>
     <div class="social-links">
-    <a href="https://www.instagram.com/maxvisuals.studio/" target="_blank" aria-label="Instagram">
-      <img src="instagram-icon.svg" alt="Instagram" />
-    </a>
-       <a href="mailto:maxvisuals.studio@gmail.com" aria-label="Email">
-      <img src="email-icon.svg" alt="Email" />
-    </a>
-    <a href="https://www.youtube.com/@massimilianodicarlo98" target="_blank" aria-label="YouTube">
-      <img src="youtube-icon.svg" alt="YouTube" />
-    </a>
-  </div>
-  </section>
-</main>
+      <a href="https://www.instagram.com/maxvisuals.studio/" target="_blank" aria-label="Instagram">
+        <img src="instagram-icon.svg" alt="Instagram">
+      </a>
+      <a href="https://www.youtube.com/@massimilianodicarlo98" target="_blank" aria-label="YouTube">
+        <img src="youtube-icon.svg" alt="YouTube">
+      </a>
+      <a href="mailto:maxvisuals.studio@gmail.com" aria-label="Email">
+        <img src="email-icon.svg" alt="Email">
+      </a>
+    </div>
 
-<footer>
-  <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
-</footer>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
 
-<script>
-  // Toggle menu mobile
-  const toggle = document.getElementById('menu-toggle');
-  const navLinks = document.getElementById('nav-links');
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-  });
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.classList.remove('active');
-      navLinks.classList.remove('active');
+  <!-- === Header === -->
+  <header id="hero">
+    <div class="hero-content">
+      <h1>Massimiliano Di Carlo</h1>
+      <p class="subtitle">
+        Videomaker, fotografo, editor.<br>
+        Creo immagini che parlano la lingua del tuo brand — eventi, portrait, visual identity.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- === Sezione Video === -->
+    <section id="video">
+      <h2>Video</h2>
+      <div class="video-grid">
+        <div class="video-item fade"><video src="marco.mp4" loop muted autoplay playsinline webkit-playsinline></video></div>
+        <div class="video-item fade"><video src="davide.mp4" loop muted autoplay playsinline webkit-playsinline></video></div>
+        <div class="video-item fade"><video src="hotel1.mp4" loop muted autoplay playsinline webkit-playsinline></video></div>
+        <div class="video-item fade"><video src="hotel3.mp4" loop muted autoplay playsinline webkit-playsinline></video></div>
+        <div class="video-item fade"><video src="hotel2.mp4" loop muted autoplay playsinline webkit-playsinline></video></div>
+      </div>
+    </section>
+
+    <!-- === Sezione Foto === -->
+    <section id="foto">
+      <h2>Foto</h2>
+      <div class="photo-grid">
+        <img class="fade" src="MAX02125.jpg" alt="Foto 1">
+        <img class="fade" src="MAX02305.jpg" alt="Foto 2">
+        <img class="fade" src="MAX01602.JPG" alt="Foto 3">
+        <img class="fade" src="MAX01644.JPG" alt="Foto 4">
+        <img class="fade" src="MAX02227.jpg" alt="Foto 5">
+        <img class="fade" src="MAX02640-4.jpg" alt="Foto 6">
+        <img class="fade" src="MAX03049.jpg" alt="Foto 7">
+        <img class="fade" src="MAX03151.jpg" alt="Foto 8">
+      </div>
+    </section>
+
+    <!-- === Sezione Contatti === -->
+    <section id="contatti">
+      <h2>Contatti</h2>
+      <div class="social-footer">
+        <a href="https://www.instagram.com/maxvisuals.studio/" target="_blank"><img src="instagram-icon.svg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/@massimilianodicarlo98" target="_blank"><img src="youtube-icon.svg" alt="YouTube"></a>
+        <a href="mailto:maxvisuals.studio@gmail.com"><img src="email-icon.svg" alt="Email"></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
+  </footer>
+
+  <!-- === JS Menu === -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
     });
-  });
-
-  // Video hover e audio toggle
-  const videos = document.querySelectorAll('.video-item video');
-  videos.forEach(video => {
-    video.addEventListener('mouseenter', () => { if(video.paused) video.play(); });
-    video.addEventListener('click', () => { video.muted = !video.muted; });
-  });
-
-  // Fade-in on scroll
-  const faders = document.querySelectorAll('.fade');
-  const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => { if(!entry.isIntersecting) return; entry.target.classList.add("appear"); observer.unobserve(entry.target); });
-  }, appearOptions);
-  faders.forEach(fader => appearOnScroll.observe(fader));
-
-  // Parallax header
-  window.addEventListener('scroll', () => {
-    const hero = document.getElementById('hero');
-    hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
-  });
-</script>
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
 
 </body>
 </html>

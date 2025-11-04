@@ -77,7 +77,8 @@ header#hero {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('header.webp') center/cover no-repeat;
+  background: url('header.webp') center/contain no-repeat;
+  background-color: #000;
   color: #fff;
   overflow: hidden;
   transition: background-position 0.2s ease-out;
@@ -125,7 +126,7 @@ h2 {
 /* === Video === */
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
 }
 
@@ -133,10 +134,14 @@ h2 {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  height: 400px;
+  padding-top: 177.78%; /* 9:16 aspect ratio */
+  height: 0;
 }
 
 .video-item video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -149,7 +154,7 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  .video-item { height: 250px; }
+  .video-item { padding-top: 177.78%; } /* mantiene verticale su mobile */
 }
 
 /* === Foto === */
@@ -164,11 +169,12 @@ h2 {
   height: auto;
   border-radius: 8px;
   object-fit: cover;
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .photo-grid img:hover {
   transform: scale(1.03);
+  filter: brightness(1.05);
 }
 
 /* === Contatti === */

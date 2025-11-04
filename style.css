@@ -5,9 +5,7 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background-color: #0d0d0d;
@@ -41,20 +39,21 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
 }
 
 .nav-links a {
   color: #e0e0e0;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.3s ease;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover { color: #ff5252; }
 
-/* === Social links navbar desktop === */
 .social-links {
   display: flex;
   align-items: center;
@@ -62,25 +61,14 @@ nav {
 }
 
 .social-links img {
-  width: 32px;   /* aumentate le dimensioni */
-  height: 32px;
-  filter: brightness(1) invert(1); /* rendi le icone bianche */
-  transition: transform 0.3s ease, filter 0.3s ease;
+  width: 28px;
+  height: 28px;
+  filter: brightness(1) invert(1); /* bianche */
+  transition: transform 0.3s ease;
 }
 
-.social-links img:hover { 
-  transform: scale(1.1);
-  filter: brightness(1) invert(0.8); /* leggero effetto hover */
-}
+.social-links img:hover { transform: scale(1.2); }
 
-/* Nascondi su mobile */
-@media (max-width: 768px) {
-  .social-links {
-    display: none;
-  }
-}
-
-/* === Menu toggle === */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -96,169 +84,4 @@ nav {
   transition: all 0.3s ease;
 }
 
-.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translateY(8px); }
-.menu-toggle.active span:nth-child(2) { opacity: 0; }
-.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
-
-/* === Header === */
-header#hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: url('header2.webp') center/cover no-repeat;
-  color: #fff;
-  overflow: hidden;
-}
-
-header#hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
-}
-
-.hero-content h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
-}
-
-.hero-content .subtitle {
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* === Main layout === */
-main {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-h2 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.5rem;
-  border-bottom: 1px solid #333;
-  padding-bottom: 0.5rem;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  color: #fff;
-}
-
-/* === Video === */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-}
-
-.video-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  aspect-ratio: 9/16; /* mantiene 9:16 */
-}
-
-.video-item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-@media (hover: hover) {
-  .video-item video:hover { transform: scale(1.02); }
-}
-
-@media (max-width: 768px) {
-  .video-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-}
-
-/* === Foto === */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.photo-grid img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-  transition: all 0.4s ease;
-}
-
-.photo-grid img:hover {
-  transform: scale(1.03);
-}
-
-/* === Contatti === */
-#contatti { text-align: center; margin-top: 3rem; }
-#contatti a { color: #e0e0e0; text-decoration: none; }
-
-.social a {
-  color: #e0e0e0;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-.social a:hover { color: #ff5252; }
-
-/* === Footer === */
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
-  padding: 2rem 0;
-  margin-top: 3rem;
-  border-top: 1px solid #222;
-}
-
-/* === Responsive Navbar === */
-@media (max-width: 768px) {
-  .menu-toggle { display: flex; }
-
-  nav { flex-wrap: wrap; }
-
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    flex-direction: column;
-    background: rgba(15, 15, 15, 0.95);
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    display: none;
-  }
-
-  .nav-links.active { display: flex; animation: slideDown 0.4s ease; }
-
-  .nav-links a { margin: 1rem 0; font-size: 1.1rem; }
-}
-
-/* === Animazioni === */
-@keyframes fadeIn { from {opacity:0; transform:translateY(10px);} to {opacity:1; transform:translateY(0);} }
-@keyframes slideDown { from {opacity:0; transform:translateY(-10px);} to {opacity:1; transform:translateY(0);} }
-
-.fade { opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease-out, transform 1.2s ease-out; }
-.fade.appear { opacity: 1; transform: translateY(0); }
+.menu

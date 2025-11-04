@@ -12,12 +12,11 @@ html {
 body {
   background-color: #0d0d0d;
   color: #e0e0e0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.6;
 }
 
 /* === Navbar === */
-/* Navbar */
 nav {
   position: sticky;
   top: 0;
@@ -25,24 +24,24 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(15,15,15,0.85);
+  background: rgba(15, 15, 15, 0.85);
   backdrop-filter: blur(10px);
   padding: 0.8rem 2rem;
   border-bottom: 1px solid #222;
 }
 
 .logo {
+  font-family: 'Oswald', sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .nav-links {
   display: flex;
-  justify-content: center;
-  flex: 1; /* link centrati */
-  gap: 2rem;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .nav-links a {
@@ -50,6 +49,7 @@ nav {
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s ease;
+  font-weight: 500;
 }
 
 .nav-links a:hover { color: #ff5252; }
@@ -60,17 +60,14 @@ nav {
   gap: 1rem;
 }
 
-.social-links a img {
+.social-links img {
   width: 24px;
   height: 24px;
   transition: transform 0.3s ease;
 }
 
-.social-links a:hover img {
-  transform: scale(1.1);
-}
+.social-links img:hover { transform: scale(1.1); }
 
-/* Menu mobile */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -90,34 +87,6 @@ nav {
 .menu-toggle.active span:nth-child(2) { opacity: 0; }
 .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    flex-direction: column;
-    background: rgba(15, 15, 15, 0.95);
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    display: none;
-  }
-
-  .nav-links.active { display: flex; animation: slideDown 0.4s ease; }
-
-  .nav-links a { margin: 1rem 0; font-size: 1.1rem; }
-
-  .social-links { display: none; }
-
-  .menu-toggle { display: flex; }
-}
-
-@keyframes slideDown {
-  from {opacity:0; transform:translateY(-10px);}
-  to {opacity:1; transform:translateY(0);}
-}
-
 /* === Header === */
 header#hero {
   position: relative;
@@ -126,10 +95,9 @@ header#hero {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('header2.webp') center/cover no-repeat;
+  background: url('header.webp') center/cover no-repeat;
   color: #fff;
   overflow: hidden;
-  transition: background-position 0.2s ease-out;
 }
 
 header#hero::after {
@@ -147,6 +115,7 @@ header#hero::after {
 }
 
 .hero-content h1 {
+  font-family: 'Oswald', sans-serif;
   font-size: 3rem;
   letter-spacing: 1px;
   margin-bottom: 1rem;
@@ -167,6 +136,7 @@ main {
 }
 
 h2 {
+  font-family: 'Oswald', sans-serif;
   font-size: 1.5rem;
   border-bottom: 1px solid #333;
   padding-bottom: 0.5rem;
@@ -178,15 +148,15 @@ h2 {
 /* === Video === */
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
 }
 
 .video-item {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  aspect-ratio: 9 / 16; /* forza il verticale */
+  aspect-ratio: 9/16; /* mantiene 9:16 */
 }
 
 .video-item video {
@@ -203,8 +173,8 @@ h2 {
 
 @media (max-width: 768px) {
   .video-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 video per riga su mobile */
-    gap: 0.8rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 
@@ -220,20 +190,15 @@ h2 {
   height: auto;
   border-radius: 8px;
   object-fit: cover;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .photo-grid img:hover {
   transform: scale(1.03);
-  filter: brightness(1.05);
 }
 
 /* === Contatti === */
-#contatti {
-  text-align: center;
-  margin-top: 3rem;
-}
-
+#contatti { text-align: center; margin-top: 3rem; }
 #contatti a { color: #e0e0e0; text-decoration: none; }
 
 .social a {
@@ -243,7 +208,6 @@ h2 {
   font-weight: 500;
   transition: color 0.3s ease;
 }
-
 .social a:hover { color: #ff5252; }
 
 /* === Footer === */
@@ -260,6 +224,8 @@ footer {
 @media (max-width: 768px) {
   .menu-toggle { display: flex; }
 
+  nav { flex-wrap: wrap; }
+
   .nav-links {
     position: absolute;
     top: 60px;
@@ -275,6 +241,13 @@ footer {
   .nav-links.active { display: flex; animation: slideDown 0.4s ease; }
 
   .nav-links a { margin: 1rem 0; font-size: 1.1rem; }
+
+  .social-links {
+    order: 3;
+    margin-top: 10px;
+    justify-content: center;
+    gap: 1.5rem;
+  }
 }
 
 /* === Animazioni === */

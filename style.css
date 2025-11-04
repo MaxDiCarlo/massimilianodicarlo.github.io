@@ -69,19 +69,18 @@ nav {
 .menu-toggle.active span:nth-child(2) { opacity: 0; }
 .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
 
-/* === Header snellito e uniforme === */
-/* === Header snellito e responsive === */
+/* === Header === */
 header#hero {
   position: relative;
-  width: 100%;
-  height: 100vh; /* altezza piena su desktop */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('header2.webp') center/cover no-repeat;
+  background: url('header.webp') center/cover no-repeat;
   color: #fff;
   overflow: hidden;
+  transition: background-position 0.2s ease-out;
 }
 
 header#hero::after {
@@ -98,7 +97,6 @@ header#hero::after {
   padding: 2rem;
 }
 
-/* Testo responsive */
 .hero-content h1 {
   font-size: 3rem;
   letter-spacing: 1px;
@@ -111,28 +109,6 @@ header#hero::after {
   margin: 0 auto;
   line-height: 1.6;
 }
-
-/* === Mobile adjustments === */
-@media (max-width: 768px) {
-  header#hero {
-    height: 100vh; /* piena altezza anche su mobile */
-    background-position: center top; /* ritaglia l’immagine verticalmente */
-    padding: 1rem;
-  }
-
-  .hero-content {
-    padding-top: 4rem; /* sposta un po’ il contenuto verso il basso */
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content .subtitle {
-    font-size: 1rem;
-  }
-}
-
 
 /* === Main layout === */
 main { width: 90%; max-width: 1100px; margin: 0 auto; }
@@ -157,13 +133,13 @@ h2 {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  height: 400px;
+  aspect-ratio: 9/16;
 }
 
 .video-item video {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* mantiene proporzioni 9:16 */
+  object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -172,8 +148,16 @@ h2 {
   .video-item video:hover { transform: scale(1.02); }
 }
 
+/* Mobile: due video per riga e leggermente più grandi */
 @media (max-width: 768px) {
-  .video-item { height: 250px; }
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .video-item {
+    height: auto;
+  }
 }
 
 /* === Foto === */
@@ -188,7 +172,7 @@ h2 {
   height: auto;
   border-radius: 8px;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .photo-grid img:hover {
@@ -198,7 +182,6 @@ h2 {
 /* === Contatti === */
 #contatti { text-align: center; margin-top: 3rem; }
 #contatti a { color: #e0e0e0; text-decoration: none; }
-
 .social a {
   color: #e0e0e0;
   margin: 0 10px;

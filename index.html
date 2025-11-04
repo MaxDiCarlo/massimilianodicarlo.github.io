@@ -6,14 +6,14 @@
   <title>Massimiliano Di Carlo – Videomaker</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/685/685655.png">
-  <!-- Google Fonts: Oswald e Roboto -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <!-- === Navbar === -->
 <nav>
-  <div class="logo">Massimiliano Di Carlo</div>
+  <div class="logo">Massimiliano Di Carlo Videomaker</div>
 
   <div class="nav-links" id="nav-links">
     <a href="#video">Video</a>
@@ -52,29 +52,19 @@
 </header>
 
 <main>
-  <!-- === Sezione Video === -->
+  <!-- Sezione Video -->
   <section id="video">
     <h2>Video</h2>
     <div class="video-grid">
-      <div class="video-item fade">
-        <video src="marco.mp4" loop muted autoplay playsinline webkit-playsinline></video>
-      </div>
-      <div class="video-item fade">
-        <video src="davide.mp4" loop muted autoplay playsinline webkit-playsinline></video>
-      </div>
-      <div class="video-item fade">
-        <video src="hotel1.mp4" loop muted autoplay playsinline webkit-playsinline></video>
-      </div>
-      <div class="video-item fade">
-        <video src="hotel3.mp4" loop muted autoplay playsinline webkit-playsinline></video>
-      </div>
-      <div class="video-item fade">
-        <video src="hotel2.mp4" loop muted autoplay playsinline webkit-playsinline></video>
-      </div>
+      <div class="video-item fade"><video src="marco.mp4" loop muted autoplay playsinline></video></div>
+      <div class="video-item fade"><video src="davide.mp4" loop muted autoplay playsinline></video></div>
+      <div class="video-item fade"><video src="hotel1.mp4" loop muted autoplay playsinline></video></div>
+      <div class="video-item fade"><video src="hotel3.mp4" loop muted autoplay playsinline></video></div>
+      <div class="video-item fade"><video src="hotel2.mp4" loop muted autoplay playsinline></video></div>
     </div>
   </section>
 
-  <!-- === Sezione Foto === -->
+  <!-- Sezione Foto -->
   <section id="foto">
     <h2>Foto</h2>
     <div class="photo-grid">
@@ -89,7 +79,7 @@
     </div>
   </section>
 
-  <!-- === Sezione Contatti === -->
+  <!-- Sezione Contatti -->
   <section id="contatti">
     <h2>Contatti</h2>
     <p>📩 <a href="mailto:maxvisuals.studio@gmail.com">massimilianodica@gmail.com</a></p>
@@ -105,16 +95,14 @@
   <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
 </footer>
 
-<!-- === JS Menu e Video Hover === -->
 <script>
-  // Menu mobile
+  // Toggle menu mobile
   const toggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('active');
     navLinks.classList.toggle('active');
   });
-
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       toggle.classList.remove('active');
@@ -125,23 +113,15 @@
   // Video hover e audio toggle
   const videos = document.querySelectorAll('.video-item video');
   videos.forEach(video => {
-    video.addEventListener('mouseenter', () => {
-      if(video.paused) video.play();
-    });
-    video.addEventListener('click', () => {
-      video.muted = !video.muted;
-    });
+    video.addEventListener('mouseenter', () => { if(video.paused) video.play(); });
+    video.addEventListener('click', () => { video.muted = !video.muted; });
   });
 
   // Fade-in on scroll
   const faders = document.querySelectorAll('.fade');
   const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
   const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("appear");
-      observer.unobserve(entry.target);
-    });
+    entries.forEach(entry => { if(!entry.isIntersecting) return; entry.target.classList.add("appear"); observer.unobserve(entry.target); });
   }, appearOptions);
   faders.forEach(fader => appearOnScroll.observe(fader));
 

@@ -43,12 +43,13 @@ nav {
   justify-content: center;
   flex: 1;
   gap: 8rem;
+  margin-right: 3rem;
 }
 
 .nav-links a {
   color: #e0e0e0;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1.25rem;
   font-weight: 500;
   transition: transform 0.3s ease, color 0.3s ease;
 }

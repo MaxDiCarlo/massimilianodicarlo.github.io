@@ -17,6 +17,11 @@ body {
   line-height: 1.6;
 }
 
+/* Assicurati che link, paragrafi e span usino Roboto */
+p, a, span, li {
+  font-family: 'Roboto', sans-serif;
+}
+
 /* === Navbar === */
 nav {
   position: sticky;
@@ -36,6 +41,7 @@ nav {
   letter-spacing: 1px;
   color: #fff;
   font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 .nav-links {
@@ -48,29 +54,11 @@ nav {
   text-decoration: none;
   margin-left: 1.5rem;
   font-size: 0.95rem;
+  font-family: 'Roboto', sans-serif;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover { color: #ff5252; }
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: #e0e0e0;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translateY(8px); }
-.menu-toggle.active span:nth-child(2) { opacity: 0; }
-.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
 
 /* === Header === */
 header#hero {
@@ -80,7 +68,7 @@ header#hero {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('header2.webp') center/cover no-repeat;
+  background: url('header.webp') center/cover no-repeat;
   color: #fff;
   overflow: hidden;
   transition: background-position 0.2s ease-out;
@@ -156,11 +144,7 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  .video-item { 
-    height: 250px; 
-    /* Video stacked in verticale, ma puoi fare due colonne */
-    grid-column: span 1;
-  }
+  .video-item { height: 250px; }
 }
 
 /* === Foto === */
@@ -190,6 +174,7 @@ h2 {
   margin: 0 10px;
   text-decoration: none;
   font-weight: 500;
+  font-family: 'Roboto', sans-serif;
   transition: color 0.3s ease;
 }
 .social a:hover { color: #ff5252; }
@@ -202,6 +187,7 @@ footer {
   padding: 2rem 0;
   margin-top: 3rem;
   border-top: 1px solid #222;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* === Responsive Navbar === */

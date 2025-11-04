@@ -42,7 +42,7 @@ nav {
   align-items: center;
   justify-content: center;
   flex: 1;
-  gap: 4rem;
+  gap: 8rem;
 }
 
 .nav-links a {
@@ -54,7 +54,7 @@ nav {
 }
 
 .nav-links a:hover {
-  color: #00ffe0;
+  color: #3fd1c2;
 }
 
 .social-links {

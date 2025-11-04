@@ -41,10 +41,26 @@
       <h2>Video</h2>
       <div class="video-grid">
         <div class="video-item fade">
-          <video src="marco.mp4" loop muted autoplay playsinline webkit-playsinline poster="marco-poster.jpg"></video>
+          <video 
+            src="marco.mp4" 
+            loop 
+            muted 
+            autoplay 
+            playsinline 
+            webkit-playsinline 
+            poster="marco-poster.jpg">
+          </video>
         </div>
         <div class="video-item fade">
-          <video src="davide.mp4" loop muted autoplay playsinline webkit-playsinline poster="davide-poster.jpg"></video>
+          <video 
+            src="davide.mp4" 
+            loop 
+            muted 
+            autoplay 
+            playsinline 
+            webkit-playsinline 
+            poster="davide-poster.jpg">
+          </video>
         </div>
       </div>
     </section>
@@ -78,7 +94,7 @@
     <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
   </footer>
 
-  <!-- === JS Menu e Fade === -->
+  <!-- === JS Menu e Video Hover === -->
   <script>
     // Menu mobile
     const toggle = document.getElementById('menu-toggle');
@@ -94,13 +110,26 @@
       });
     });
 
+    // Hover desktop per audio video
+    const videos = document.querySelectorAll('.video-item video');
+    videos.forEach(video => {
+      video.addEventListener('mouseenter', () => {
+        // Parte in mute al primo hover
+        if(video.paused) video.play();
+      });
+      video.addEventListener('click', () => {
+        // Toggle audio su click
+        video.muted = !video.muted;
+      });
+    });
+
     // Fade-in on scroll
     const faders = document.querySelectorAll('.fade');
     const appearOptions = {
       threshold: 0.15,
       rootMargin: "0px 0px -50px 0px"
     };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add("appear");

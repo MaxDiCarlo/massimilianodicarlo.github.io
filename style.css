@@ -241,7 +241,6 @@ h2 {
 /* Hover effetto per le icone social */
 .social-links img:hover {
   transform: scale(1.1);
-  filter: brightness(1.2); /* effetto di luminosità per il hover */
 }
 
 

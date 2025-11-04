@@ -39,23 +39,37 @@ nav {
 
 .nav-links {
   display: flex;
-  align-items: center;
-  height: 100%;
+  justify-content: center;
+  flex: 1; /* i link centrati */
+  gap: 2rem;
 }
 
 .nav-links a {
   color: #e0e0e0;
   text-decoration: none;
-  margin-left: 2rem;
   font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  height: 100%;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover { color: #ff5252; }
 
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-links a img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover img {
+  transform: scale(1.1);
+}
+
+/* Menu mobile */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -75,6 +89,32 @@ nav {
 .menu-toggle.active span:nth-child(2) { opacity: 0; }
 .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
 
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    flex-direction: column;
+    background: rgba(15, 15, 15, 0.95);
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    display: none;
+  }
+
+  .nav-links.active { display: flex; animation: slideDown 0.4s ease; }
+
+  .nav-links a { margin: 1rem 0; font-size: 1.1rem; }
+
+  .social-links { display: none; }
+
+  .menu-toggle { display: flex; }
+}
+
+@keyframes slideDown {
+  from {opacity:0; transform:translateY(-10px);}
+  to {opacity:1; transform:translateY(0);}
+}
 /* === Header === */
 header#hero {
   position: relative;

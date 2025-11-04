@@ -54,7 +54,7 @@ nav {
 
 .nav-links a:hover { color: #ff5252; }
 
-/* === Social links navbar === */
+/* === Social links navbar desktop === */
 .social-links {
   display: flex;
   align-items: center;
@@ -62,14 +62,18 @@ nav {
 }
 
 .social-links img {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease;
+  width: 32px;   /* aumentate le dimensioni */
+  height: 32px;
+  filter: brightness(1) invert(1); /* rendi le icone bianche */
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.social-links img:hover { transform: scale(1.1); }
+.social-links img:hover { 
+  transform: scale(1.1);
+  filter: brightness(1) invert(0.8); /* leggero effetto hover */
+}
 
-/* === Nascondi social links su mobile === */
+/* Nascondi su mobile */
 @media (max-width: 768px) {
   .social-links {
     display: none;

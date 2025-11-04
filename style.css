@@ -191,7 +191,6 @@ h2 {
 }
 
 /* === Video === */
-/* === Video === */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 video per riga su desktop */
@@ -225,6 +224,38 @@ h2 {
   .video-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 video per riga */
     gap: 1rem;
+  }
+}
+
+/* Sottotitolo sezione Video (es. "Reel Social") */
+.video-subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.05rem;
+  color: #e9f9f6;                /* leggermente più chiaro del body */
+  text-align: center;
+  margin: 0.5rem 0 1rem;         /* spazio sopra/sotto */
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 6px rgba(0, 224, 198, 0.45),
+    0 0 12px rgba(0, 224, 198, 0.20); /* glow cinematic tenue */
+  transition: transform 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* leggero effetto hover / focus (utile su desktop) */
+.video-subtitle:hover,
+.video-subtitle:focus {
+  transform: scale(1.02);
+  text-shadow:
+    0 0 10px rgba(0, 224, 198, 0.7),
+    0 0 20px rgba(0, 224, 198, 0.35);
+}
+
+/* versione mobile: riduciamo un po' la dimensione */
+@media (max-width: 768px) {
+  .video-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
   }
 }
 

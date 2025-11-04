@@ -224,17 +224,26 @@ h2 {
   text-decoration: none;
 }
 
-.social a {
-  color: #e0e0e0;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+/* Icone social nella sezione contatti */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* distanza tra le icone */
+  margin-top: 1rem;
 }
 
-.social a:hover {
-  color: #ff5252;
+.social-links img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+/* Hover effetto per le icone social */
+.social-links img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2); /* effetto di luminosità per il hover */
+}
+
 
 /* === Footer === */
 footer {

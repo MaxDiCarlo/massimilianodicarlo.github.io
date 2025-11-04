@@ -20,7 +20,7 @@ nav {
   top: 0;
   z-index: 100;
   display: flex;
-  justify-content: center;
+  justify-content: space between;
   align-items: center;
   background: rgba(15,15,15,0.85);
   backdrop-filter: blur(10px);

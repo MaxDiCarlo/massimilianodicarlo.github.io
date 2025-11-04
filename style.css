@@ -54,6 +54,7 @@ nav {
 
 .nav-links a:hover { color: #ff5252; }
 
+/* === Social links navbar === */
 .social-links {
   display: flex;
   align-items: center;
@@ -68,6 +69,14 @@ nav {
 
 .social-links img:hover { transform: scale(1.1); }
 
+/* === Nascondi social links su mobile === */
+@media (max-width: 768px) {
+  .social-links {
+    display: none;
+  }
+}
+
+/* === Menu toggle === */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -241,13 +250,6 @@ footer {
   .nav-links.active { display: flex; animation: slideDown 0.4s ease; }
 
   .nav-links a { margin: 1rem 0; font-size: 1.1rem; }
-
-  .social-links {
-    order: 3;
-    margin-top: 10px;
-    justify-content: center;
-    gap: 1.5rem;
-  }
 }
 
 /* === Animazioni === */

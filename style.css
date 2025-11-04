@@ -43,7 +43,7 @@ nav {
   justify-content: center;
   flex: 1;
   gap: 8rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .nav-links a {

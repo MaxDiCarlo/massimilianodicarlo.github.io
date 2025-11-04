@@ -74,7 +74,7 @@ nav {
 header#hero {
   position: relative;
   width: 100%;
-  min-height: 60vh; /* altezza minima su desktop */
+  height: 100vh; /* altezza piena su desktop */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,9 +115,13 @@ header#hero::after {
 /* === Mobile adjustments === */
 @media (max-width: 768px) {
   header#hero {
-    min-height: 80vh; /* più spazio verticale */
-    padding: 2rem 1rem;
-    align-items: flex-start; /* contenuto leggermente più alto */
+    height: 100vh; /* piena altezza anche su mobile */
+    background-position: center top; /* ritaglia l’immagine verticalmente */
+    padding: 1rem;
+  }
+
+  .hero-content {
+    padding-top: 4rem; /* sposta un po’ il contenuto verso il basso */
   }
 
   .hero-content h1 {

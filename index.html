@@ -1,26 +1,132 @@
-<section id="video">
-  <h2>Video</h2>
-  <div class="video-grid">
-    <div class="video-item fade">
-      <video src="marco.mp4" loop muted autoplay playsinline webkit-playsinline poster="marco-poster.jpg"></video>
-    </div>
-    <div class="video-item fade">
-      <video src="davide.mp4" loop muted autoplay playsinline webkit-playsinline poster="davide-poster.jpg"></video>
-    </div>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Massimiliano Di Carlo – Videomaker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+</head>
+<body>
 
-<script>
-// Hover desktop: attiva audio
-const videos = document.querySelectorAll('.video-item video');
+  <!-- === Navbar === -->
+  <nav>
+    <div class="logo">Massimiliano Di Carlo</div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#video">Video</a>
+      <a href="#foto">Foto</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+  </nav>
 
-videos.forEach(video => {
-  video.addEventListener('mouseenter', () => {
-    video.muted = false;
-    video.play();
-  });
-  video.addEventListener('mouseleave', () => {
-    video.muted = true;
-  });
-});
-</script>
+  <!-- === Header === -->
+  <header id="hero">
+    <div class="hero-content">
+      <h1>Massimiliano Di Carlo</h1>
+      <p class="subtitle">
+        Videomaker, fotografo, editor.<br>
+        Creo immagini che parlano la lingua del tuo brand — eventi, portrait, visual identity.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- === Sezione Video === -->
+    <section id="video">
+      <h2>Video</h2>
+      <div class="video-grid">
+        <div class="video-item fade">
+          <video src="marco.mp4" loop muted autoplay playsinline webkit-playsinline poster="marco-poster.jpg"></video>
+        </div>
+        <div class="video-item fade">
+          <video src="davide.mp4" loop muted autoplay playsinline webkit-playsinline poster="davide-poster.jpg"></video>
+        </div>
+      </div>
+    </section>
+
+    <!-- === Sezione Foto === -->
+    <section id="foto">
+      <h2>Foto</h2>
+      <div class="photo-grid">
+        <img class="fade" src="MAX02125.jpg" alt="Foto 1">
+        <img class="fade" src="MAX02227.jpg" alt="Foto 2">
+        <img class="fade" src="MAX02305.jpg" alt="Foto 3">
+        <img class="fade" src="MAX02640-4.jpg" alt="Foto 4">
+        <img class="fade" src="MAX03049.jpg" alt="Foto 5">
+        <img class="fade" src="MAX03103.jpg" alt="Foto 6">
+        <img class="fade" src="MAX03151.jpg" alt="Foto 7">
+      </div>
+    </section>
+
+    <!-- === Sezione Contatti === -->
+    <section id="contatti">
+      <h2>Contatti</h2>
+      <p>📩 <a href="mailto:maxvisuals.studio@gmail.com">massimilianodica@gmail.com</a></p>
+      <div class="social">
+        <a href="https://www.instagram.com/maxvisuals.studio/" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@massimilianodicarlo98" target="_blank">YouTube</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
+  </footer>
+
+  <!-- === JS Menu e Video Hover === -->
+  <script>
+    // Menu mobile
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Hover desktop per audio video
+    const videos = document.querySelectorAll('.video-item video');
+    videos.forEach(video => {
+      video.addEventListener('mouseenter', () => {
+        video.muted = false;
+        video.play();
+      });
+      video.addEventListener('mouseleave', () => {
+        video.muted = true;
+      });
+    });
+
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade');
+    const appearOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("appear");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Parallax header
+    window.addEventListener('scroll', () => {
+      const hero = document.getElementById('hero');
+      hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
+    });
+  </script>
+
+</body>
+</html>

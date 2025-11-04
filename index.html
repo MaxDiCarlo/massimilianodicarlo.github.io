@@ -6,6 +6,7 @@
   <title>Massimiliano Di Carlo – Videomaker</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,8 +14,8 @@
   <!-- === Navbar === -->
   <nav>
     <div class="logo">
-      <div class="logo-line1">Massimiliano Di Carlo</div>
-      <div class="logo-line2">Videomaker</div>
+      Massimiliano Di Carlo<br>
+      Videomaker
     </div>
 
     <div class="nav-links" id="nav-links">
@@ -25,13 +26,13 @@
 
     <div class="social-links">
       <a href="https://www.instagram.com/maxvisuals.studio/" target="_blank" aria-label="Instagram">
-        <img src="instagram-icon.svg" alt="Instagram">
+        <img src="instagram-icon.svg" alt="Instagram" />
       </a>
       <a href="https://www.youtube.com/@massimilianodicarlo98" target="_blank" aria-label="YouTube">
-        <img src="youtube-icon.svg" alt="YouTube">
+        <img src="youtube-icon.svg" alt="YouTube" />
       </a>
       <a href="mailto:maxvisuals.studio@gmail.com" aria-label="Email">
-        <img src="email-icon.svg" alt="Email">
+        <img src="email-icon.svg" alt="Email" />
       </a>
     </div>
 
@@ -84,6 +85,7 @@
     <!-- === Sezione Contatti === -->
     <section id="contatti">
       <h2>Contatti</h2>
+      <p>📩 <a href="mailto:maxvisuals.studio@gmail.com">massimilianodica@gmail.com</a></p>
       <div class="social-footer">
         <a href="https://www.instagram.com/maxvisuals.studio/" target="_blank"><img src="instagram-icon.svg" alt="Instagram"></a>
         <a href="https://www.youtube.com/@massimilianodicarlo98" target="_blank"><img src="youtube-icon.svg" alt="YouTube"></a>
@@ -96,19 +98,46 @@
     <p>© 2025 Massimiliano Di Carlo — All rights reserved</p>
   </footer>
 
-  <!-- === JS Menu === -->
+  <!-- === JS Menu e Video Hover === -->
   <script>
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
+
     toggle.addEventListener('click', () => {
       toggle.classList.toggle('active');
       navLinks.classList.toggle('active');
     });
+
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         toggle.classList.remove('active');
         navLinks.classList.remove('active');
       });
+    });
+
+    // Video hover e audio toggle
+    const videos = document.querySelectorAll('.video-item video');
+    videos.forEach(video => {
+      video.addEventListener('mouseenter', () => { if(video.paused) video.play(); });
+      video.addEventListener('click', () => { video.muted = !video.muted; });
+    });
+
+    // Fade-in on scroll
+    const faders = document.querySelectorAll('.fade');
+    const appearOptions = { threshold:0.15, rootMargin:"0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver((entries,observer)=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add("appear");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader=>appearOnScroll.observe(fader));
+
+    // Parallax header
+    window.addEventListener('scroll', ()=>{
+      const hero = document.getElementById('hero');
+      hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
     });
   </script>
 

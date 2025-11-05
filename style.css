@@ -219,7 +219,6 @@ h2 {
 .video-item:hover {
   transform: scale(1.03);
   box-shadow: 0 0 15px rgba(0, 224, 198, 0.4); /* glow cinematic */
-  z-index: 2; /* fa emergere sopra agli altri */
 }
 
 /* Tablet e Mobile */
@@ -304,6 +303,7 @@ h2 {
   border-radius: 8px;
   object-fit: cover;
   transition: all 0.4s ease;
+  cursor: pointer;
 }
 
 .photo-grid img:hover {

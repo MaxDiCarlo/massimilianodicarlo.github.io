@@ -255,6 +255,16 @@ h2 {
   text-shadow: 0 0 10px rgba(0, 255, 220, 0.8),
                0 0 20px rgba(0, 255, 220, 0.5);
 }
+.video-subtitle.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.video-subtitle.fade.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* === Video Sottosezione: Spot (16:9) === */
 .video-grid-spot {

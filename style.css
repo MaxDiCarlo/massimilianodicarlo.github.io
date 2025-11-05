@@ -290,15 +290,6 @@ h2 {
 }
 
 /* Titolo sottosezioni video */
-.video-subtitle {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: #00e0c6;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
 
 /* Mobile */
 @media (max-width: 1024px) {

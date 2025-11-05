@@ -261,7 +261,6 @@ h2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 per riga su desktop */
   gap: 1.5rem;
-  margin-top: 2rem;
 }
 
 .video-grid-spot .video-item {

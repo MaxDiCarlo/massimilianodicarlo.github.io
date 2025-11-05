@@ -299,6 +299,19 @@ h2 {
   transform: scale(1.02);
 }
 
+.video-grid-spot .video-item.fade,
+.video-subtitle.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.video-grid-spot .video-item.fade.appear,
+.video-subtitle.fade.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Titolo sottosezioni video */
 
 /* Mobile */

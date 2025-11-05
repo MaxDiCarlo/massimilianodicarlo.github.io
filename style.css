@@ -216,10 +216,11 @@ h2 {
 }
 
 .video-item:hover {
-  transform: scale(1.03);
   box-shadow: 0 0 15px rgba(0, 224, 198, 0.4); /* glow cinematic */
 }
-
+.video-item:hover video {
+  transform: scale(1.03);
+}
 /* Tablet e Mobile */
 @media (max-width: 1024px) {
   .video-grid {

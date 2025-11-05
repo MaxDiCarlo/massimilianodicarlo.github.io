@@ -215,7 +215,7 @@ h2 {
 }
 
 .video-item:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   box-shadow: 0 0 15px rgba(0, 224, 198, 0.4); /* glow cinematic */
 }
 
@@ -305,6 +305,7 @@ h2 {
 
 .photo-grid img:hover {
   transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0, 224, 198, 0.4); /* glow cinematic */
 }
 
 /* Responsive migliorato */

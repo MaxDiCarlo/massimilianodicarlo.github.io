@@ -193,18 +193,18 @@ h2 {
 /* === Video === */
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 video per riga su desktop */
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
 .video-item {
   position: relative;
-  overflow: hidden;
   border-radius: 8px;
   aspect-ratio: 9 / 16;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
+  overflow: visible; /* ✅ permette l'espansione */
 }
 
 .video-item video {
@@ -212,22 +212,27 @@ h2 {
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 8px;
   transition: transform 0.4s ease;
 }
 
 .video-item:hover {
-  box-shadow: 0 0 15px rgba(0, 224, 198, 0.4); /* glow cinematic */
+  transform: scale(1.03); /* ✅ si ingrandisce il blocco */
+  box-shadow: 0 0 20px rgba(0, 224, 198, 0.4);
 }
+
 .video-item:hover video {
-  transform: scale(1.03);
+  transform: scale(1.02); /* leggero zoom interno */
 }
+
 /* Tablet e Mobile */
 @media (max-width: 1024px) {
   .video-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 video per riga */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 }
+
 
 /* Sottotitolo sezione Video (es. "Reel Social") */
 
